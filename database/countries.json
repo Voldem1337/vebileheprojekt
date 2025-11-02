@@ -1,0 +1,40 @@
+{
+  "countries": [
+    {
+      "name": "Eesti",
+      "image": "images/estonia.jpg",
+      "safety": 9,
+      "climate": "Mõõdukas",
+      "cost": "Keskmine",
+      "resortRating": 6,
+      "description": "Väike ja turvaline riik, kus on palju metsi, järvi ja ilus pealinn Tallinn."
+    },
+    {
+      "name": "Hispaania",
+      "image": "images/spain.jpg",
+      "safety": 7,
+      "climate": "Soe ja päikeseline",
+      "cost": "Keskmisest kõrgem",
+      "resortRating": 9,
+      "description": "Rikkalik kultuur, maitsev toit ja ilusad rannad. Ideaalne suvine sihtkoht."
+    },
+    {
+      "name": "Jaapan",
+      "image": "images/japan.jpg",
+      "safety": 10,
+      "climate": "Muutlik – jahedad talved, niisked suved",
+      "cost": "Kõrge",
+      "resortRating": 8,
+      "description": "Unikaalne segu traditsioonidest ja tehnoloogiast. Väga puhas ja turvaline riik."
+    },
+    {
+      "name": "Türgi",
+      "image": "images/turkey.jpg",
+      "safety": 6,
+      "climate": "Soe ja kuiv",
+      "cost": "Madal",
+      "resortRating": 8,
+      "description": "Populaarne turismimaa, tuntud oma ajaloo, rannaelu ja toidu poolest."
+    }
+  ]
+}
