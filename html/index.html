@@ -3,18 +3,123 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reisileht</title>
+  <title>TravelSwipe</title>
 
-  <link rel="stylesheet" href="css/main.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/main.css">
 </head>
-
 <body>
-  <h1>Tere tulemast!</h1>
-  <p>Avasta maailma meie reisiäpiga!</p>
-  <button>Alusta reisi</button>
 
+  <!-- 🌍 NAVIGATION -->
+  <header class="navbar">
+    <div class="logo">
+  <img src="../css/logo.png" alt="TravelSwipe logo" width="200", height="200">
+</div>
 
-  <script src="js/countries.js"></script>
-  <script src="js/explore.js"></script>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#about">About us</a></li>
+        <li><a href="explore.html">Explore</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 🎬 HERO SECTION -->
+  <section class="hero">
+    <video autoplay muted loop playsinline class="background-video">
+      <source src="videos/travel.mp4" type="video/mp4">
+      Your browser does not support video.
+    </video>
+    <div class="hero-content">
+      <h1>Avasta maailma mängides</h1>
+      <p>Leia oma järgmine reisisihtkoht lihtsalt ja lõbusalt</p>
+      <a href="explore.html" class="btn">Alusta reisi</a>
+    </div>
+  </section>
+
+  <!-- 💖 FAVORITE COUNTRIES -->
+  <section class="favorites" id="about">
+    <h2>Kasutajate lemmikud riigid</h2>
+    <div class="grid">
+      <div class="country-card">
+        <img src="images/spain.jpg" alt="Hispaania">
+        <div class="overlay">Hispaania</div>
+      </div>
+      <div class="country-card">
+        <img src="images/italy.jpg" alt="Itaalia">
+        <div class="overlay">Itaalia</div>
+      </div>
+      <div class="country-card">
+        <img src="images/greece.jpg" alt="Kreeka">
+        <div class="overlay">Kreeka</div>
+      </div>
+      <div class="country-card">
+        <img src="../database/Tallinn.jpg" alt="Prantsusmaa">
+        <div class="overlay">Prantsusmaa</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🤝 CLIENT STATS -->
+  <section class="stats">
+    <h2>Meie kasutajad ja kogemused</h2>
+    <div class="stat-grid">
+      <div class="stat-box">
+        <h3>4k+</h3>
+        <p>Õnnelikud kasutajad</p>
+      </div>
+      <div class="stat-box">
+        <h3>98%</h3>
+        <p>Rahulolu tase</p>
+      </div>
+      <div class="stat-box">
+        <h3>50+</h3>
+        <p>Euroopa sihtkohta</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ❓ FAQ -->
+  <section class="faq">
+    <h2>Korduma kippuvad küsimused</h2>
+    <div class="faq-container">
+      <details>
+        <summary>Kuidas TravelSwipe töötab?</summary>
+        <p>Kasutaja saab riike “swipe’ida” ja salvestada oma lemmikud.</p>
+      </details>
+      <details>
+        <summary>Kas ma saan oma tulemusi hiljem vaadata?</summary>
+        <p>Jah, kõik meeldinud riigid salvestatakse localStorage’i ja on nähtavad results.html lehel.</p>
+      </details>
+      <details>
+        <summary>Kas leht töötab ka telefonis?</summary>
+        <p>Jah, kõik lehed on täielikult mobiilisõbralikud.</p>
+      </details>
+      <details>
+        <summary>Kas TravelSwipe on tasuta?</summary>
+        <p>Jah! See on õppimiseks ja lõbutsemiseks mõeldud projektileht.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ⚫ FOOTER -->
+  <footer class="footer" id="contact">
+    <div class="footer-left">
+      <h3>TravelSwipe</h3>
+      <p>Avasta maailma mängides 🌍</p>
+    </div>
+    <div class="footer-right">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="explore.html">Explore</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="#about">About us</a></li>
+      </ul>
+    </div>
+  </footer>
+
 </body>
 </html>
