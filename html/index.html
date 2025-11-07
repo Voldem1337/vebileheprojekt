@@ -5,32 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TravelSwipe</title>
 
-  <!-- CSS -->
+  <!-- AOS animation library -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+  <!-- CSS file -->
   <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
 
-  <!-- 🌍 NAVIGATION -->
-  <header class="navbar">
-    <div class="logo">
-  <img src="../css/logo.png" alt="TravelSwipe logo" width="200", height="200">
-</div>
+  <!-- FIXED NAVIGATION BAR -->
+ <header class="navbar">
+  <a href="index.html" class="logo">TravelSwipe</a>
+  <ul>
+    <li><a href="index.html">Avaleht</a></li>
+    <li><a href="#about">Meist</a></li>
+    <li><a href="explore.html">Avasta</a></li>
+    <li><a href="results.html">Tulemused</a></li>
+    <li><a href="#contact">Kontaktid</a></li>
+  </ul>
+  <a href="explore.html" class="cta-btn">Alusta reisi</a>
+</header>
 
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="#about">About us</a></li>
-        <li><a href="explore.html">Explore</a></li>
-        <li><a href="results.html">Results</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <!-- 🎬 HERO SECTION -->
+  <!-- HERO VIDEO SECTION -->
   <section class="hero">
     <video autoplay muted loop playsinline class="background-video">
-      <source src="videos/travel.mp4" type="video/mp4">
+      <source src="../database/video/video.mp4" type="video/mp4">
       Your browser does not support video.
     </video>
     <div class="hero-content">
@@ -40,52 +43,68 @@
     </div>
   </section>
 
-  <!-- 💖 FAVORITE COUNTRIES -->
+  <!-- FAVORITE COUNTRIES SECTION -->
   <section class="favorites" id="about">
     <h2>Kasutajate lemmikud riigid</h2>
     <div class="grid">
-      <div class="country-card">
-        <img src="images/spain.jpg" alt="Hispaania">
-        <div class="overlay">Hispaania</div>
+      <div class="country-card" data-aos="fade-down" data-aos-delay="100">
+        <img src="../database/image/spain.jpg" alt="Hispaania">
+        <div class="overlay">
+          <h3>Hispaania</h3>
+          <p>Soe kliima, maitsev toit ja päikesepaistelised rannad.</p>
+        </div>
       </div>
-      <div class="country-card">
-        <img src="images/italy.jpg" alt="Itaalia">
-        <div class="overlay">Itaalia</div>
+      <div class="country-card" data-aos="fade-down" data-aos-delay="300">
+        <img src="../database/image/italy.jpg" alt="Itaalia">
+        <div class="overlay">
+          <h3>Itaalia</h3>
+          <p>Kunst, ajalugu ja maailma parim köök.</p>
+        </div>
       </div>
-      <div class="country-card">
-        <img src="images/greece.jpg" alt="Kreeka">
-        <div class="overlay">Kreeka</div>
+      <div class="country-card" data-aos="fade-down" data-aos-delay="500">
+        <img src="../database/image/greece.jpg" alt="Kreeka">
+        <div class="overlay">
+          <h3>Kreeka</h3>
+          <p>Valged majad, sinine meri ja soe külalislahkus.</p>
+        </div>
       </div>
-      <div class="country-card">
-        <img src="../database/image/Tallinn.jpg" alt="Prantsusmaa">
-        <div class="overlay">Prantsusmaa</div>
+      <div class="country-card" data-aos="fade-down" data-aos-delay="700">
+        <img src="../database/image/France.jpg" alt="Pransusmaa">
+        <div class="overlay">
+          <h3>Prantsusmaa</h3>
+          <p>Rikas kultuur, maailmakuulus köök ja romantilised linnad.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 🤝 CLIENT STATS -->
-  <section class="stats">
+  <!-- CLIENT STATS -->
+<section class="stats" id="stats">
+  <div class="overlay"></div>
+  <div class="stats-content">
     <h2>Meie kasutajad ja kogemused</h2>
     <div class="stat-grid">
       <div class="stat-box">
-        <h3>4k+</h3>
+        <div class="rolling-counter" data-target="4000">0</div>
         <p>Õnnelikud kasutajad</p>
       </div>
       <div class="stat-box">
-        <h3>98%</h3>
-        <p>Rahulolu tase</p>
+        <div class="rolling-counter" data-target="98">0</div>
+        <p>Rahulolu tase (%)</p>
       </div>
       <div class="stat-box">
-        <h3>50+</h3>
+        <div class="rolling-counter" data-target="50">0</div>
         <p>Euroopa sihtkohta</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ❓ FAQ -->
+
+  <!-- FAQ SECTION -->
   <section class="faq">
     <h2>Korduma kippuvad küsimused</h2>
-    <div class="faq-container">
+    <div class="faq-container" data-aos="fade-up">
       <details>
         <summary>Kuidas TravelSwipe töötab?</summary>
         <p>Kasutaja saab riike “swipe’ida” ja salvestada oma lemmikud.</p>
@@ -105,21 +124,46 @@
     </div>
   </section>
 
-  <!-- ⚫ FOOTER -->
+  <!-- FOOTER -->
   <footer class="footer" id="contact">
-    <div class="footer-left">
-      <h3>TravelSwipe</h3>
-      <p>Avasta maailma mängides 🌍</p>
+    <div class="footer-left" data-aos="fade-right">
+      <img src="../css/logo.png" alt="TravelSwipe logo" width="140">
+      <p>Avasta maailma mängides</p>
+
+      <!-- Social icons -->
+      <div class="social-container">
+        <a href="https://www.instagram.com/" target="_blank" class="social-btn instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/" target="_blank" class="social-btn facebook">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="https://www.tiktok.com/" target="_blank" class="social-btn tiktok">
+          <i class="fa-brands fa-tiktok"></i>
+        </a>
+      </div>
     </div>
-    <div class="footer-right">
+
+    <div class="footer-right" data-aos="fade-left">
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="explore.html">Explore</a></li>
-        <li><a href="results.html">Results</a></li>
-        <li><a href="#about">About us</a></li>
+        <li><a href="index.html">Avaleht</a></li>
+        <li><a href="explore.html">Avasta</a></li>
+        <li><a href="results.html">Tulemused</a></li>
+        <li><a href="#about">Meist</a></li>
       </ul>
     </div>
   </footer>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button id="toTopBtn" title="Go to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- JAVASCRIPT -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="../js/countries.js"></script>
+
+  </script>
 
 </body>
 </html>
