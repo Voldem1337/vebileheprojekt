@@ -19,6 +19,33 @@
       "description": "Rikkalik kultuur, maitsev toit ja ilusad rannad. Ideaalne suvine sihtkoht."
     },
     {
+      "name": "Portugal",
+      "image": "images/portugal.jpg",
+      "safety": 8,
+      "climate": "Soe ja päikeseline",
+      "cost": "Keskmine",
+      "resortRating": 8,
+      "description": "Ilu rannad, maalilised linnad ja suurepärane vein. Ideaalne suvine ja kultuurireisiks."
+    },
+    {
+      "name": "Prantsusmaa",
+      "image": "images/france.jpg",
+      "safety": 8,
+      "climate": "Mõõdukas",
+      "cost": "Keskmisest kõrgem",
+      "resortRating": 8,
+      "description": "Rikas kultuur, maailmakuulus köök ja romantilised linnad. Populaarne turismi- ja toidusihtkoht."
+    },
+    {
+      "name": "Holland",
+      "image": "images/netherlands.jpg",
+      "safety": 9,
+      "climate": "Mõõdukas",
+      "cost": "Keskmine",
+      "resortRating": 7,
+      "description": "Kanalid ja muuseumid. Väga turvaline ja mugav turistidele."
+    },
+    {
       "name": "Jaapan",
       "image": "images/japan.jpg",
       "safety": 10,
@@ -26,6 +53,78 @@
       "cost": "Kõrge",
       "resortRating": 8,
       "description": "Unikaalne segu traditsioonidest ja tehnoloogiast. Väga puhas ja turvaline riik."
+    },
+    {
+      "name": "Soome",
+      "image": "images/finland.jpg",
+      "safety": 10,
+      "climate": "Külm",
+      "cost": "Keskmisest kõrgem",
+      "resortRating": 6,
+      "description": "Rahulik loodus, saunad ja järved. Sobib talviseks puhkuseks ja looduse nautimiseks."
+    },
+    {
+      "name": "Saksamaa",
+      "image": "images/germany.jpg",
+      "safety": 9,
+      "climate": "Mõõdukas",
+      "cost": "Keskmine",
+      "resortRating": 7,
+      "description": "Arhitektuur ja ajalugu on silmapaistvad, paljud festivalid ja ilus loodus."
+    },
+    {
+      "name": "Rootsi",
+      "image": "images/sweden.jpg",
+      "safety": 9,
+      "climate": "Mõõdukas",
+      "cost": "Kõrge",
+      "resortRating": 7,
+      "description": "Stiilne ja turvaline, loodus ja linnad tasakaalus. Populaarne linnapuhkuseks ja talispordiks."
+    },
+    {
+      "name": "Norra",
+      "image": "images/norway.jpg",
+      "safety": 10,
+      "climate": "Külm ja mõõdukas",
+      "cost": "Kõrge",
+      "resortRating": 7,
+      "description": "Fjordid, põhjapõdrad ja ilus loodus. Sobib matkajatele ja loodusearmastajatele."
+    },
+    {
+      "name": "Kreeka",
+      "image": "images/greece.jpg",
+      "safety": 7,
+      "climate": "Soe ja päikeseline",
+      "cost": "Keskmine",
+      "resortRating": 9,
+      "description": "Valged majad, sinine meri ja soe külalislahkus. Ideaalne rannapuhkuseks."
+    },
+    {
+      "name": "Itaalia",
+      "image": "images/italy.jpg",
+      "safety": 8,
+      "climate": "Mõõdukas kuni soe",
+      "cost": "Keskmine",
+      "resortRating": 8,
+      "description": "Kunsti, ajalooga ja maailmakuulsa köögiga riik. Populaarne turistidele ja toiduhuvilistele."
+    },
+    {
+      "name": "Belgia",
+      "image": "images/belgium.jpg",
+      "safety": 8,
+      "climate": "Mõõdukas",
+      "cost": "Keskmine",
+      "resortRating": 7,
+      "description": "Šokolaad, käsitööõlu ja ajaloolised linnad. Lühike ja huvitav linnapuhkus."
+    },
+    {
+      "name": "Šveits",
+      "image": "images/switzerland.jpg",
+      "safety": 10,
+      "climate": "Mõõdukas kuni külm",
+      "cost": "Kõrge",
+      "resortRating": 9,
+      "description": "Alpid, matkarajad, luksuslikud linnad ja talispordi võimalused."
     },
     {
       "name": "Türgi",
