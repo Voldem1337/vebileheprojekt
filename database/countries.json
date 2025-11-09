@@ -28,6 +28,15 @@
       "description": "Ilu rannad, maalilised linnad ja suurepärane vein. Ideaalne suvine ja kultuurireisiks."
     },
     {
+      "name": "Malta",
+      "image": "images/malta.jpg",
+      "safety": 9,
+      "climate": "Soe ja päikeseline",
+      "cost": "Keskmisest kõrgem",
+      "resortRating": 8,
+      "description": "Väike saareriik Vahemeres, ajalooline ja täis rannamõnusid."
+    },
+    {
       "name": "Prantsusmaa",
       "image": "images/france.jpg",
       "safety": 8,
@@ -118,6 +127,15 @@
       "description": "Šokolaad, käsitööõlu ja ajaloolised linnad. Lühike ja huvitav linnapuhkus."
     },
     {
+      "name": "Horvaatia",
+      "image": "images/croatia.jpg",
+      "safety": 8,
+      "climate": "Soe ja päikeseline",
+      "cost": "Keskmine",
+      "resortRating": 8,
+      "description": "Kaunid rannad, ajaloolised linnad ja kristallselge meri. Populaarne suvepuhkuse sihtkoht."
+    },
+    {
       "name": "Šveits",
       "image": "images/switzerland.jpg",
       "safety": 10,
@@ -125,6 +143,15 @@
       "cost": "Kõrge",
       "resortRating": 9,
       "description": "Alpid, matkarajad, luksuslikud linnad ja talispordi võimalused."
+    },
+    {
+      "name": "Tšehhi",
+      "image": "images/czech.jpg",
+      "safety": 8,
+      "climate": "Soe",
+      "cost": "Pigem odav",
+      "resortRating": 7,
+      "description": "Ajalooline Praha ja taskukohane hind teevad sellest populaarse sihtkoha kultuurihuvilistele."
     },
     {
       "name": "Bulgaaria",
