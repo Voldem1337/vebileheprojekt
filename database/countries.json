@@ -56,7 +56,7 @@
     },
     {
       "name": "Soome",
-      "image": "images/finland.jpg",
+      "image": "images/Soome.jpg",
       "safety": 10,
       "climate": "Külm",
       "cost": "Keskmisest kõrgem",
@@ -83,7 +83,7 @@
     },
     {
       "name": "Norra",
-      "image": "images/norway.jpg",
+      "image": "images/Norra.jpg",
       "safety": 10,
       "climate": "Külm ja mõõdukas",
       "cost": "Kõrge",
@@ -110,7 +110,7 @@
     },
     {
       "name": "Belgia",
-      "image": "images/belgium.jpg",
+      "image": "images/belgium.jpeg",
       "safety": 8,
       "climate": "Mõõdukas",
       "cost": "Keskmine",
@@ -127,8 +127,26 @@
       "description": "Alpid, matkarajad, luksuslikud linnad ja talispordi võimalused."
     },
     {
+      "name": "Bulgaaria",
+      "image": "images/bulgaria.jpg",
+      "safety": 7,
+      "climate": "Soe",
+      "cost": "odav",
+      "resortRating": 8,
+      "description": "Soe kliima, ilusad rannad Musta mere ääres ja taskukohased hinnad."
+    },
+    {
+      "name": "Ühendkuningriik",
+      "image": "images/UK.jpg",
+      "safety": 8,
+      "climate": "Mõõdukas ja vihmane",
+      "cost": "Kõrge",
+      "resortRating": 7,
+      "description": "Ajalooline ja mitmekesine riik, kus leidub nii Londoni suurlinnaelu kui ka Šotimaa looduskauneid maastikke."
+    },
+    {
       "name": "Türgi",
-      "image": "images/turkey.jpg",
+      "image": "images/turkey.jpeg",
       "safety": 6,
       "climate": "Soe ja kuiv",
       "cost": "Madal",
