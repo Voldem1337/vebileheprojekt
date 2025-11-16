@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4db2746f-b94f-4e84-a7c0-ecb8b4aea454" name="Changes" comment="Getting started">
+<<<<<<< Updated upstream
       <change afterPath="$PROJECT_DIR$/database/image/France.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/database/image/faq-bg.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/database/image/greece.jpg" afterDir="false" />
@@ -18,6 +19,9 @@
       <change beforePath="$PROJECT_DIR$/database/image/Tallinn.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/countries.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/countries.js" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,6 +125,10 @@
       <workItem from="1762320691483" duration="11619000" />
       <workItem from="1762455568014" duration="1049000" />
       <workItem from="1762494264949" duration="11774000" />
+<<<<<<< Updated upstream
+=======
+      <workItem from="1763291918654" duration="31000" />
+>>>>>>> Stashed changes
     </task>
     <task id="LOCAL-00001" summary="Getting started">
       <option name="closed" value="true" />
