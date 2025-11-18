@@ -1,3 +1,4 @@
+
 // --- 1. Initialize AOS animations ---
 AOS.init({
   duration: 1000, // animation duration in milliseconds

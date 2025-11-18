@@ -5,11 +5,21 @@
     <title>Title</title>
     <script src="../js/countries.js"></script>
     <script src="../js/explore.js"></script>
-    <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/explore.css">
+    <link rel="stylesheet" href="../css/footer.css">
 
 </head>
 <body>
+  <!-- FOOTER -->
+  <div id="footer"></div>
 
+<script>
+  fetch("../html/footer.html")
+    .then(res => res.text())
+    .then(html => {
+      document.querySelector("#footer").innerHTML = html;
+    });
+
+</script>
 </body>
 </html>
