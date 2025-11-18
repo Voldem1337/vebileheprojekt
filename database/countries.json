@@ -19,6 +19,42 @@
       "description": "Rikkalik kultuur, maitsev toit ja ilusad rannad. Ideaalne suvine sihtkoht."
     },
     {
+      "name": "Portugal",
+      "image": "images/portugal.jpg",
+      "safety": 8,
+      "climate": "Soe ja päikeseline",
+      "cost": "Keskmine",
+      "resortRating": 8,
+      "description": "Ilu rannad, maalilised linnad ja suurepärane vein. Ideaalne suvine ja kultuurireisiks."
+    },
+    {
+      "name": "Malta",
+      "image": "images/malta.jpg",
+      "safety": 9,
+      "climate": "Soe ja päikeseline",
+      "cost": "Keskmisest kõrgem",
+      "resortRating": 8,
+      "description": "Väike saareriik Vahemeres, ajalooline ja täis rannamõnusid."
+    },
+    {
+      "name": "Prantsusmaa",
+      "image": "images/france.jpg",
+      "safety": 8,
+      "climate": "Mõõdukas",
+      "cost": "Keskmisest kõrgem",
+      "resortRating": 8,
+      "description": "Rikas kultuur, maailmakuulus köök ja romantilised linnad. Populaarne turismi- ja toidusihtkoht."
+    },
+    {
+      "name": "Holland",
+      "image": "images/netherlands.jpg",
+      "safety": 9,
+      "climate": "Mõõdukas",
+      "cost": "Keskmine",
+      "resortRating": 7,
+      "description": "Kanalid ja muuseumid. Väga turvaline ja mugav turistidele."
+    },
+    {
       "name": "Jaapan",
       "image": "images/japan.jpg",
       "safety": 10,
@@ -28,8 +64,116 @@
       "description": "Unikaalne segu traditsioonidest ja tehnoloogiast. Väga puhas ja turvaline riik."
     },
     {
+      "name": "Soome",
+      "image": "images/Soome.jpg",
+      "safety": 10,
+      "climate": "Külm",
+      "cost": "Keskmisest kõrgem",
+      "resortRating": 6,
+      "description": "Rahulik loodus, saunad ja järved. Sobib talviseks puhkuseks ja looduse nautimiseks."
+    },
+    {
+      "name": "Saksamaa",
+      "image": "images/germany.jpg",
+      "safety": 9,
+      "climate": "Mõõdukas",
+      "cost": "Keskmine",
+      "resortRating": 7,
+      "description": "Arhitektuur ja ajalugu on silmapaistvad, paljud festivalid ja ilus loodus."
+    },
+    {
+      "name": "Rootsi",
+      "image": "images/sweden.jpg",
+      "safety": 9,
+      "climate": "Mõõdukas",
+      "cost": "Kõrge",
+      "resortRating": 7,
+      "description": "Stiilne ja turvaline, loodus ja linnad tasakaalus. Populaarne linnapuhkuseks ja talispordiks."
+    },
+    {
+      "name": "Norra",
+      "image": "images/Norra.jpg",
+      "safety": 10,
+      "climate": "Külm ja mõõdukas",
+      "cost": "Kõrge",
+      "resortRating": 7,
+      "description": "Fjordid, põhjapõdrad ja ilus loodus. Sobib matkajatele ja loodusearmastajatele."
+    },
+    {
+      "name": "Kreeka",
+      "image": "images/greece.jpg",
+      "safety": 7,
+      "climate": "Soe ja päikeseline",
+      "cost": "Keskmine",
+      "resortRating": 9,
+      "description": "Valged majad, sinine meri ja soe külalislahkus. Ideaalne rannapuhkuseks."
+    },
+    {
+      "name": "Itaalia",
+      "image": "images/italy.jpg",
+      "safety": 8,
+      "climate": "Mõõdukas kuni soe",
+      "cost": "Keskmine",
+      "resortRating": 8,
+      "description": "Kunsti, ajalooga ja maailmakuulsa köögiga riik. Populaarne turistidele ja toiduhuvilistele."
+    },
+    {
+      "name": "Belgia",
+      "image": "images/belgium.jpeg",
+      "safety": 8,
+      "climate": "Mõõdukas",
+      "cost": "Keskmine",
+      "resortRating": 7,
+      "description": "Šokolaad, käsitööõlu ja ajaloolised linnad. Lühike ja huvitav linnapuhkus."
+    },
+    {
+      "name": "Horvaatia",
+      "image": "images/croatia.jpg",
+      "safety": 8,
+      "climate": "Soe ja päikeseline",
+      "cost": "Keskmine",
+      "resortRating": 8,
+      "description": "Kaunid rannad, ajaloolised linnad ja kristallselge meri. Populaarne suvepuhkuse sihtkoht."
+    },
+    {
+      "name": "Šveits",
+      "image": "images/switzerland.jpg",
+      "safety": 10,
+      "climate": "Mõõdukas kuni külm",
+      "cost": "Kõrge",
+      "resortRating": 9,
+      "description": "Alpid, matkarajad, luksuslikud linnad ja talispordi võimalused."
+    },
+    {
+      "name": "Tšehhi",
+      "image": "images/czech.jpg",
+      "safety": 8,
+      "climate": "Soe",
+      "cost": "Pigem odav",
+      "resortRating": 7,
+      "description": "Ajalooline Praha ja taskukohane hind teevad sellest populaarse sihtkoha kultuurihuvilistele."
+    },
+    {
+      "name": "Bulgaaria",
+      "image": "images/bulgaria.jpg",
+      "safety": 7,
+      "climate": "Soe",
+      "cost": "Odav",
+      "resortRating": 8,
+      "description": "Soe kliima, ilusad rannad Musta mere ääres ja taskukohased hinnad."
+    },
+    {
+      "name": "Ühendkuningriik",
+      "image": "images/UK.jpg",
+      "safety": 8,
+      "climate": "Mõõdukas ja vihmane",
+      "cost": "Kõrge",
+      "resortRating": 7,
+      "description": "Ajalooline ja mitmekesine riik, kus leidub nii Londoni suurlinnaelu kui ka Šotimaa looduskauneid maastikke."
+    },
+    {
       "name": "Türgi",
-      "image": "images/turkey.jpg",
+      "image": "images/turkey.jpeg",
       "safety": 6,
       "climate": "Soe ja kuiv",
       "cost": "Madal",
