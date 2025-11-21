@@ -326,7 +326,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.45); /* dark overlay for contrast */
+  background: rgba(0, 0, 0, 0.45);
   z-index: 0;
 }
 
@@ -362,16 +362,44 @@ body {
   transform: translateY(-5px);
 }
 
-.stat-box h3 {
-  font-size: 2.5rem;
-  color: #ff6b6b;
-  margin-bottom: 0.5rem;
-  font-weight: 700;
-}
-
 .stat-box p {
   font-size: 1rem;
   opacity: 0.9;
+}
+
+/* ========= Rolling Counter (Slot Effect) ========= */
+
+.rolling-counter {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 2px;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.rolling-counter-roller {
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.rolling-counter-track {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.rolling-counter-item {
+  height: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 

@@ -94,5 +94,90 @@ function startRollingCounters() {
   let i = 1
 }
 
+function initRollingCounters() {
+  const counters = document.querySelectorAll(".rolling-counter");
+
+  // Fixed scrolling sequence (numbers the roller will cycle through)
+  const sequence = [2, 5, 1, 3,];
+  const duration = 2000; // Total animation duration (2 seconds)
+  const easing = "cubic-bezier(0.25, 0.8, 0.25, 1)"; // Smooth easing curve
+
+  counters.forEach(counter => {
+    const target = parseInt(counter.dataset.target, 10);
+    const suffix = counter.dataset.suffix || "";
+
+    // Create the roller wrapper (acts like a mask for vertical scrolling)
+    const roller = document.createElement("div");
+    roller.className = "rolling-counter-roller";
+
+    // Inner track that will actually move vertically
+    const track = document.createElement("div");
+    track.className = "rolling-counter-track";
+
+    // Build the vertical list (each number is one “step” of the scroll)
+    sequence.forEach((num, index) => {
+      const item = document.createElement("div");
+      item.className = "rolling-counter-item";
+
+      // The final item must display the actual target value
+      const value = (index === sequence.length - 1) ? target : num;
+      item.textContent = value + suffix;
+
+      track.appendChild(item);
+    });
+
+    roller.appendChild(track);
+
+    // Replace the original number with our animated roller
+    counter.textContent = "";
+    counter.appendChild(roller);
+
+    // Wait one frame so the browser calculates dimensions
+    requestAnimationFrame(() => {
+      const itemHeight = track.firstElementChild.offsetHeight;
+
+      // Set initial position (track starts at the very top)
+      track.style.transform = "translateY(0)";
+      track.style.transition = "transform " + duration + "ms " + easing;
+
+      // On the next frame, move the track upward to show the last item
+      requestAnimationFrame(() => {
+        const offset = -itemHeight * (sequence.length - 1);
+        track.style.transform = "translateY(" + offset + "px)";
+      });
+    });
+  });
+}
+
+// Start animation when the stats section becomes visible
+const statsSection = document.querySelector("#stats");
+
+if (statsSection) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        initRollingCounters();
+        observer.disconnect(); // Run once only
+      }
+    });
+  }, { threshold: 0.4 });
+
+  observer.observe(statsSection);
+}
+
+
+
+// Start animation when section becomes visible
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      playCounters();
+      observer.disconnect();
+    }
+  });
+});
+
+observer.observe(document.querySelector("#stats"));
+
 
 window.addEventListener("scroll", startRollingCounters);
