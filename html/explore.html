@@ -1,25 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="et">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <script src="../js/countries.js"></script>
-    <script src="../js/explore.js"></script>
+    <meta charset="UTF-8" />
+    <title>Avasta – TravelSwipe</title>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="../css/explore.css">
+
+    <!-- anomation-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- js and logic-->
+    <script src="../js/countries.js" defer></script>
     <link rel="stylesheet" href="../css/footer.css">
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+  AOS.init();
+</script>
+
+
+
 
 </head>
 <body>
-  <!-- FOOTER -->
-  <div id="footer"></div>
 
+
+
+<!-- =============================
+            MAIN LAYOUT
+================================= -->
+
+<main class="swipe-layout">
+
+    <!-- Left panel -->
+    <section class="swipe-info" data-aos="fade-right">
+        <h1>Avasta uusi sihtkohti</h1>
+        <p>
+            Swipe paremale, kui riik sulle meeldib. Swipe vasakule, kui ei kõneta.
+            Kõik lemmikud salvestatakse sinu tulemuste lehele.
+        </p>
+
+        <ul class="swipe-hints">
+            <li>⬅ Vasak – jäta vahele</li>
+            <li>➡ Parem – lisa lemmikutesse</li>
+            <li>␣ Tühik või ❤️ – ka “meeldib”</li>
+        </ul>
+    </section>
+
+
+    <!-- Game -->
+    <section class="swipe-game" data-aos="fade-left">
+
+        <div class="swipe-card-shell">
+            <div class="swipe-card" id="swipeCard">
+
+                <div class="swipe-card-image" id="countryImage"></div>
+
+                <div class="swipe-card-content">
+                    <h2 id="countryName">Country name</h2>
+                    <p id="countryTagline">Short description.</p>
+
+                    <div class="swipe-meta">
+                        <span id="countryClimate"></span>
+                        <span id="countryCost"></span>
+                        <span id="countrySafety"></span>
+                        <span id="countryResort"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="swipe-controls" data-aos="zoom-in" data-aos-delay="150">
+            <button class="swipe-btn swipe-dislike" id="btnDislike" aria-label="Dislike">
+                ✖
+            </button>
+            <button class="swipe-btn swipe-like" id="btnLike" aria-label="Like">
+                ❤️
+            </button>
+        </div>
+
+        <!-- when list is empty -->
+        <div class="swipe-end" id="swipeEnd" hidden data-aos="fade-up">
+            <h2>Oled kõik riigid läbi vaadanud!</h2>
+            <p>Vaata oma lemmikuid tulemuste lehel.</p>
+            <a href="results.html" class="swipe-results-link">Vaata tulemusi</a>
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+<div id="footer"></div>
 <script>
   fetch("../html/footer.html")
     .then(res => res.text())
     .then(html => {
       document.querySelector("#footer").innerHTML = html;
     });
-
 </script>
+
+
+
+
 </body>
 </html>
