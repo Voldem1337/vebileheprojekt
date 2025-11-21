@@ -394,12 +394,25 @@ body {
   flex-direction: column;
 }
 
+.rolling-digit {
+  display: inline-block;
+  overflow: hidden;
+  height: 1em;
+}
+
 
 .rolling-counter-item {
   height: 1em;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+
+.rolling-suffix {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-left: 4px;
 }
 
 
