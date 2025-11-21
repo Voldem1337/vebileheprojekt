@@ -1,6 +1,6 @@
 async function loadCountries() {
   try {
-    const res = await fetch('database/countries.json');  // adjust path if needed
+    const res = await fetch('../database/countries.json');  // adjust path if needed
 
     if (!res.ok) throw new Error(`Failed to load JSON: ${res.status}`);
 
