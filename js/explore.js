@@ -1,57 +1,46 @@
-async function loadGallery() {
+async function loadCountries() {
   try {
-    // Fetch the JSON file. Use the path relative to this HTML file:
-    // in our example it's in `data/data.json`
-    const res = await fetch('data/data.json');
+    const res = await fetch('database/countries.json');  // adjust path if needed
 
-    if (!res.ok) throw new Error(`Failed to load JSON (${res.status})`);
+    if (!res.ok) throw new Error(`Failed to load JSON: ${res.status}`);
 
-    // Keep the response URL so we can resolve relative image paths against it
-    const baseForRelative = res.url; // <-- important
+    // Base URL for resolving relative paths
+    const baseURL = res.url;
 
-    const items = await res.json(); // expects an array of objects with {name, image}
+    const data = await res.json();
+
+    // Read the "countries" array
+    const countries = data.countries || [];
 
     const gallery = document.getElementById('gallery');
-    gallery.innerHTML = ''; // clear
+    gallery.innerHTML = '';
 
-    items.forEach(item => {
-      // If the JSON has relative paths (e.g. "images/a.jpg"), resolve them relative to the JSON file:
-      const imageUrl = item.image
-        ? new URL(item.image, baseForRelative).href
-        : null;
+    countries.forEach(country => {
+      // Resolve image path relative to the JSON file
+      const imageUrl = new URL(country.image, baseURL).href;
 
       const card = document.createElement('div');
       card.className = 'card';
 
-      // Image element
       const img = document.createElement('img');
-      img.alt = item.name ?? 'image';
+      img.src = imageUrl;
+      img.alt = country.name;
       img.loading = 'lazy';
-      // set src or use placeholder
-      if (imageUrl) img.src = imageUrl;
-      else img.src = 'data:image/svg+xml;utf8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300"><rect width="100%" height="100%" fill="#f3f3f3"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#999" font-size="20">No image</text></svg>');
 
-      // fallback if image fails to load
-      img.onerror = () => {
-        img.onerror = null;
-        img.src = 'data:image/svg+xml;utf8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300"><rect width="100%" height="100%" fill="#f3f3f3"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#999" font-size="18">Image not found</text></svg>');
-      };
-
-      // Name
       const nameEl = document.createElement('div');
       nameEl.className = 'name';
-      nameEl.textContent = item.name ?? 'Unnamed';
+      nameEl.textContent = country.name;
 
       card.appendChild(img);
       card.appendChild(nameEl);
+
       gallery.appendChild(card);
     });
 
   } catch (err) {
-    console.error('Error loading gallery', err);
-    document.getElementById('gallery').textContent = 'Failed to load gallery.';
+    console.error('Error:', err);
+    document.getElementById('gallery').textContent = 'Failed to load countries.';
   }
 }
 
-// run on page load
-document.addEventListener('DOMContentLoaded', loadGallery);
+document.addEventListener('DOMContentLoaded', loadCountries);
