@@ -98,7 +98,7 @@ function initRollingCounters() {
   const counters = document.querySelectorAll(".rolling-counter");
 
   // Fixed scrolling sequence (numbers the roller will cycle through)
-  const sequence = [2, 5, 1, 3,];
+  const sequence = [0,1,2,3,4];
   const duration = 2000; // Total animation duration (2 seconds)
   const easing = "cubic-bezier(0.25, 0.8, 0.25, 1)"; // Smooth easing curve
 
