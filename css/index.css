@@ -279,11 +279,14 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.6s ease-in-out;
 }
 
+
 .country-card:hover img {
-  opacity: 0.5;
+  opacity: 0.75;
+  transform: scale(1.03);
+  filter: blur(1px);
 }
 
 .country-card .overlay {
@@ -326,7 +329,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.45); /* dark overlay for contrast */
+  background: rgba(0, 0, 0, 0.45);
   z-index: 0;
 }
 
@@ -347,31 +350,78 @@ body {
   flex-wrap: wrap;
   gap: 2rem;
 }
-
 .stat-box {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(5px);
-  padding: 2rem;
-  border-radius: 15px;
-  width: 200px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s;
+  background: #ffffff;
+  padding: 2.3rem;
+  border-radius: 25px;
+  width: 250px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12); /*shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .stat-box:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.22);
 }
 
-.stat-box h3 {
-  font-size: 2.5rem;
-  color: #ff6b6b;
-  margin-bottom: 0.5rem;
-  font-weight: 700;
+.stat-box .rolling-counter {
+  font-size: 3.3rem;
+  font-weight: 800;
+  color: #333; ;
 }
 
 .stat-box p {
-  font-size: 1rem;
-  opacity: 0.9;
+  color: #444;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+
+/* ========= Rolling Counter (Slot Effect) ========= */
+
+.rolling-counter {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 2px;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.rolling-counter-roller {
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.rolling-counter-track {
+  display: flex;
+  flex-direction: column;
+}
+
+.rolling-digit {
+  display: inline-block;
+  overflow: hidden;
+  height: 1em;
+}
+
+
+.rolling-counter-item {
+  height: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.rolling-suffix {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-left: 4px;
 }
 
 
@@ -492,80 +542,6 @@ details p {
   color: #444;
 }
 
-
-/* ================================
-   FOOTER
-================================== */
-.footer {
-  background: #111;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
-  flex-wrap: wrap;
-  padding: 3rem 10%;
-}
-
-.footer-left img {
-  display: block;
-  margin-bottom: 1rem;
-}
-
-.social-container {
-  display: flex;
-  gap: 10px;
-  margin-top: 1rem;
-}
-
-.social-btn {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  color: white;
-  text-decoration: none;
-  transition: transform 0.3s, background 0.3s;
-}
-
-.social-btn i {
-  font-size: 18px;
-}
-
-.instagram {
-  background: #e4405f;
-}
-
-.facebook {
-  background: #1877f2;
-}
-
-.tiktok {
-  background: #000000;
-}
-
-.social-btn:hover {
-  transform: scale(1.1);
-}
-
-.footer-right ul {
-  list-style: none;
-}
-
-.footer-right li {
-  margin-bottom: 0.5rem;
-}
-
-.footer-right a {
-  color: #ccc;
-  text-decoration: none;
-}
-
-.footer-right a:hover {
-  color: #fff;
-}
-
 /* ================================
    BACK TO TOP BUTTON
 ================================== */
@@ -619,4 +595,68 @@ details p {
     bottom: 20px;
     right: 20px;
   }
+  /* ================================
+   FOOTER
+================================== */
+}
+.footer {
+  background: #111;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  flex-wrap: wrap;
+  padding: 3rem 10%;
+}
+
+.footer-left img {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.social-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.social-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: white;
+  text-decoration: none;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.social-btn i {
+  font-size: 18px;
+}
+
+.instagram { background: #e4405f; }
+.facebook { background: #1877f2; }
+.tiktok { background: #000; }
+
+.social-btn:hover {
+  transform: scale(1.1);
+}
+
+.footer-right ul {
+  list-style: none;
+}
+
+.footer-right li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-right a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.footer-right a:hover {
+  color: #fff;
 }
