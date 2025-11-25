@@ -4,7 +4,7 @@
 //  TRAVELSWIPE – SWIPE GAME LOGIC
 // ===============================
 //
-// Ожидаем, что в countries.js объявлен массив объектов, например:
+//
 //
 // const countriesData = [
 //   {
@@ -20,12 +20,10 @@
 // ];
 //
 
-//
-
 document.addEventListener("DOMContentLoaded", () => {
-  // --- 1. Источник данных ---
+  // --- 1. DATA SOURCE ---
 
-  // Пытаемся взять массив из глобальной области.
+  // Try to get the array from the global scope (loaded from countries.js)
   const countries =
     window.countriesData ||
     window.countries ||
@@ -39,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentIndex = 0;
   let isAnimating = false;
 
-  // --- 2. DOM-элементы ---
+  // --- 2. DOM ELEMENTS ---
 
   const cardEl = document.getElementById("swipeCard");
   const imgEl = document.getElementById("countryImage");
@@ -60,10 +58,11 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  // --- 3. Работа с localStorage ---
+  // --- 3. LOCAL STORAGE HANDLING ---
 
   const STORAGE_KEY = "likedCountries";
 
+  // Load liked countries from storage
   function getLikedFromStorage() {
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
@@ -74,6 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Save updated liked countries list
   function saveLikedToStorage(list) {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
@@ -82,11 +82,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // --- 4. Рендер текущей страны ---
+  // --- 4. RENDER CURRENT COUNTRY CARD ---
 
   function renderCurrentCountry() {
     if (currentIndex >= countries.length) {
-      // Страны кончились
+      // No more countries left
       cardEl.style.visibility = "hidden";
       endEl && (endEl.hidden = false);
       return;
@@ -95,25 +95,25 @@ document.addEventListener("DOMContentLoaded", () => {
     const c = countries[currentIndex];
 
     imgEl.style.backgroundImage = `url(${c.image})`;
-    nameEl.textContent = c.name || "Tundmatu riik";
+    nameEl.textContent = c.name || "Unknown country";
     taglineEl.textContent =
-      c.description || "Avasta seda sihtkohta!";
+      c.description || "Discover this destination!";
 
-    // Поля из твоего JSON
-    if (climateEl) climateEl.textContent = c.climate ? `Kliima: ${c.climate}` : "";
-    if (costEl) costEl.textContent = c.cost ? `Hind: ${c.cost}` : "";
+    // Fields from your JSON
+    if (climateEl) climateEl.textContent = c.climate ? `Climate: ${c.climate}` : "";
+    if (costEl) costEl.textContent = c.cost ? `Cost: ${c.cost}` : "";
     if (safetyEl)
       safetyEl.textContent =
         typeof c.safety === "number"
-          ? `Turvalisus: ${c.safety}/10`
+          ? `Safety: ${c.safety}/10`
           : "";
     if (resortEl)
       resortEl.textContent =
         typeof c.resortRating === "number"
-          ? `Kuurordid: ${c.resortRating}/10`
+          ? `Resorts: ${c.resortRating}/10`
           : "";
 
-    // Сброс анимаций
+    // Reset animations
     cardEl.classList.remove("swipe-right", "swipe-left");
     cardEl.style.transform = "translateX(0) rotate(0)";
     cardEl.style.opacity = "1";
@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
     isAnimating = false;
   }
 
-  // --- 5. Обработка свайпа ---
+  // --- 5. SWIPE HANDLING ---
 
   function handleSwipe(direction) {
     if (isAnimating || currentIndex >= countries.length) return;
@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (direction === "right") {
       const liked = getLikedFromStorage();
 
-      // Не добавлять дубликаты по имени
+      // Prevent duplicates (checked by name)
       if (!liked.some((item) => item.name === currentCountry.name)) {
         liked.push({
           name: currentCountry.name,
@@ -152,14 +152,14 @@ document.addEventListener("DOMContentLoaded", () => {
       cardEl.classList.add("swipe-left");
     }
 
-    // Ждём завершения CSS-анимации и переходим к следующей
+    // Wait for CSS animation to end, then load next card
     setTimeout(() => {
       currentIndex++;
       renderCurrentCountry();
     }, 350);
   }
 
-  // --- 6. Кнопки Like / Dislike ---
+  // --- 6. BUTTON CONTROLS ---
 
   if (btnLike) {
     btnLike.addEventListener("click", () => handleSwipe("right"));
@@ -169,7 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
     btnDislike.addEventListener("click", () => handleSwipe("left"));
   }
 
-  // --- 7. Управление с клавиатуры ---
+  // --- 7. KEYBOARD CONTROLS ---
 
   window.addEventListener("keydown", (e) => {
     if (currentIndex >= countries.length) return;
@@ -195,7 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // --- 8. Свайпы на тач-устройствах ---
+  // --- 8. TOUCH SWIPES (MOBILE) ---
 
   let touchStartX = null;
 
@@ -207,7 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
   cardEl.addEventListener("touchend", (e) => {
     if (touchStartX === null) return;
     const dx = e.changedTouches[0].clientX - touchStartX;
-    const SWIPE_THRESHOLD = 60; // px
+    const SWIPE_THRESHOLD = 60; // px movement required
 
     if (dx > SWIPE_THRESHOLD) {
       handleSwipe("right");
@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
     touchStartX = null;
   });
 
-  // --- 9. Старт игры ---
+  // --- 9. START GAME ---
 
   renderCurrentCountry();
 });
