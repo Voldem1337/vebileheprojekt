@@ -2,7 +2,7 @@
   "countries": [
     {
       "name": "Eesti",
-      "image": "images/estonia.jpg",
+      "image": "image/estonia.jpg",
       "safety": 9,
       "climate": "Mõõdukas",
       "cost": "Keskmine",
@@ -11,7 +11,7 @@
     },
     {
       "name": "Hispaania",
-      "image": "images/spain.jpg",
+      "image": "image/spain.jpg",
       "safety": 7,
       "climate": "Soe ja päikeseline",
       "cost": "Keskmisest kõrgem",
@@ -20,7 +20,7 @@
     },
     {
       "name": "Portugal",
-      "image": "images/portugal.jpg",
+      "image": "image/portugal.jpg",
       "safety": 8,
       "climate": "Soe ja päikeseline",
       "cost": "Keskmine",
@@ -29,7 +29,7 @@
     },
     {
       "name": "Malta",
-      "image": "images/malta.jpg",
+      "image": "image/malta.jpg",
       "safety": 9,
       "climate": "Soe ja päikeseline",
       "cost": "Keskmisest kõrgem",
@@ -38,7 +38,7 @@
     },
     {
       "name": "Prantsusmaa",
-      "image": "images/france.jpg",
+      "image": "image/france.jpg",
       "safety": 8,
       "climate": "Mõõdukas",
       "cost": "Keskmisest kõrgem",
@@ -47,7 +47,7 @@
     },
     {
       "name": "Holland",
-      "image": "images/netherlands.jpg",
+      "image": "image/netherlands.jpg",
       "safety": 9,
       "climate": "Mõõdukas",
       "cost": "Keskmine",
@@ -56,7 +56,7 @@
     },
     {
       "name": "Jaapan",
-      "image": "images/japan.jpg",
+      "image": "image/japan.jpg",
       "safety": 10,
       "climate": "Muutlik – jahedad talved, niisked suved",
       "cost": "Kõrge",
@@ -65,7 +65,7 @@
     },
     {
       "name": "Soome",
-      "image": "images/Soome.jpg",
+      "image": "image/Soome.jpg",
       "safety": 10,
       "climate": "Külm",
       "cost": "Keskmisest kõrgem",
@@ -74,7 +74,7 @@
     },
     {
       "name": "Saksamaa",
-      "image": "images/germany.jpg",
+      "image": "image/germany.jpg",
       "safety": 9,
       "climate": "Mõõdukas",
       "cost": "Keskmine",
@@ -83,7 +83,7 @@
     },
     {
       "name": "Rootsi",
-      "image": "images/sweden.jpg",
+      "image": "image/sweden.jpg",
       "safety": 9,
       "climate": "Mõõdukas",
       "cost": "Kõrge",
@@ -92,7 +92,7 @@
     },
     {
       "name": "Norra",
-      "image": "images/Norra.jpg",
+      "image": "image/Norra.jpg",
       "safety": 10,
       "climate": "Külm ja mõõdukas",
       "cost": "Kõrge",
@@ -101,7 +101,7 @@
     },
     {
       "name": "Kreeka",
-      "image": "images/greece.jpg",
+      "image": "image/greece.jpg",
       "safety": 7,
       "climate": "Soe ja päikeseline",
       "cost": "Keskmine",
@@ -110,7 +110,7 @@
     },
     {
       "name": "Itaalia",
-      "image": "images/italy.jpg",
+      "image": "image/italy.jpg",
       "safety": 8,
       "climate": "Mõõdukas kuni soe",
       "cost": "Keskmine",
@@ -119,7 +119,7 @@
     },
     {
       "name": "Belgia",
-      "image": "images/belgium.jpeg",
+      "image": "image/belgium.jpeg",
       "safety": 8,
       "climate": "Mõõdukas",
       "cost": "Keskmine",
@@ -128,7 +128,7 @@
     },
     {
       "name": "Horvaatia",
-      "image": "images/croatia.jpg",
+      "image": "image/croatia.jpg",
       "safety": 8,
       "climate": "Soe ja päikeseline",
       "cost": "Keskmine",
@@ -137,7 +137,7 @@
     },
     {
       "name": "Šveits",
-      "image": "images/switzerland.jpg",
+      "image": "image/switzerland.jpg",
       "safety": 10,
       "climate": "Mõõdukas kuni külm",
       "cost": "Kõrge",
@@ -146,7 +146,7 @@
     },
     {
       "name": "Tšehhi",
-      "image": "images/czech.jpg",
+      "image": "image/czech.jpg",
       "safety": 8,
       "climate": "Soe",
       "cost": "Pigem odav",
@@ -155,7 +155,7 @@
     },
     {
       "name": "Bulgaaria",
-      "image": "images/bulgaria.jpg",
+      "image": "image/bulgaria.jpg",
       "safety": 7,
       "climate": "Soe",
       "cost": "Odav",
@@ -164,7 +164,7 @@
     },
     {
       "name": "Ühendkuningriik",
-      "image": "images/UK.jpg",
+      "image": "image/UK.jpg",
       "safety": 8,
       "climate": "Mõõdukas ja vihmane",
       "cost": "Kõrge",
@@ -173,7 +173,7 @@
     },
     {
       "name": "Türgi",
-      "image": "images/turkey.jpeg",
+      "image": "image/turkey.jpeg",
       "safety": 6,
       "climate": "Soe ja kuiv",
       "cost": "Madal",
