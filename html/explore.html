@@ -7,21 +7,17 @@
     <!-- CSS -->
     <link rel="stylesheet" href="../css/explore.css">
 
+
     <!-- anomation-->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
     <!-- js and logic-->
-    <script src="../js/countries.js" defer></script>
-
+    <script src="../js/explore.js" defer></script>
 
 
 <script>
   AOS.init();
 </script>
-
-
-
-
 </head>
 <body>
 
@@ -52,43 +48,30 @@
     <!-- Game -->
     <section class="swipe-game" data-aos="fade-left">
 
-        <div class="swipe-card-shell">
-            <div class="swipe-card" id="swipeCard">
+  <!-- STACKED CARDS -->
+  <div id="stackContainer" class="stack-container">
+    <!-- Cards will be injected dynamically -->
+  </div>
 
-                <div class="swipe-card-image" id="countryImage"></div>
+  <!-- Controls -->
+  <div class="swipe-controls" data-aos="zoom-in" data-aos-delay="150">
+    <button class="swipe-btn swipe-dislike" id="btnDislike" aria-label="Dislike">
+      ✖
+    </button>
+    <button class="swipe-btn swipe-like" id="btnLike" aria-label="Like">
+      ❤️
+    </button>
+  </div>
 
-                <div class="swipe-card-content">
-                    <h2 id="countryName">Country name</h2>
-                    <p id="countryTagline">Short description.</p>
+  <!-- End -->
+  <div class="swipe-end" id="swipeEnd" hidden>
+    <h2>Oled kõik riigid läbi vaadanud!</h2>
+    <p>Vaata oma lemmikuid tulemuste lehel.</p>
+    <a href="results.html" class="swipe-results-link">Vaata tulemusi</a>
+  </div>
 
-                    <div class="swipe-meta">
-                        <span id="countryClimate"></span>
-                        <span id="countryCost"></span>
-                        <span id="countrySafety"></span>
-                        <span id="countryResort"></span>
-                    </div>
-                </div>
-            </div>
-        </div>
+</section>
 
-        <!-- Buttons -->
-        <div class="swipe-controls" data-aos="zoom-in" data-aos-delay="150">
-            <button class="swipe-btn swipe-dislike" id="btnDislike" aria-label="Dislike">
-                ✖
-            </button>
-            <button class="swipe-btn swipe-like" id="btnLike" aria-label="Like">
-                ❤️
-            </button>
-        </div>
-
-        <!-- when list is empty -->
-        <div class="swipe-end" id="swipeEnd" hidden data-aos="fade-up">
-            <h2>Oled kõik riigid läbi vaadanud!</h2>
-            <p>Vaata oma lemmikuid tulemuste lehel.</p>
-            <a href="results.html" class="swipe-results-link">Vaata tulemusi</a>
-        </div>
-
-    </section>
 
 </main>
 
