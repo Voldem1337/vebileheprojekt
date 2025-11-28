@@ -18,49 +18,51 @@
 
 <body>
 
-
-
-<!-- Back to Top button (needed for JS) -->
+<!-- Back to Top button -->
 <button id="toTopBtn" class="to-top-btn">↑</button>
+
+<!-- Help Icon with Tooltip -->
+<div class="help-container">
+    <div class="help-icon">
+        <i class="fas fa-question-circle"></i>
+    </div>
+    <div class="help-tooltip">
+        <h3>Kuidas mängida?</h3>
+        <ul>
+            <li><i class="fas fa-arrow-left"></i> Swipe vasakule – jäta vahele</li>
+            <li><i class="fas fa-arrow-right"></i> Swipe paremale – lisa lemmikutesse</li>
+            <li><i class="fas fa-heart"></i> Vajuta ❤️ või tühikut – meeldib</li>
+            <li><i class="fas fa-mouse"></i> Lohista kaarte hiirega</li>
+        </ul>
+        <p>Kõik lemmikud salvestatakse tulemuste lehele!</p>
+    </div>
+</div>
 
 <main class="swipe-layout">
 
-    <!-- Left panel -->
-    <section class="swipe-info" data-aos="fade-right">
-        <h1>Avasta uusi sihtkohti</h1>
-        <p>
-            Swipe paremale, kui riik sulle meeldib. Swipe vasakule, kui ei kõneta.
-            Kõik lemmikud salvestatakse sinu tulemuste lehele.
-        </p>
+    <!-- Game Section (centered) -->
+    <section class="swipe-game" data-aos="fade-up">
 
-        <ul class="swipe-hints">
-            <li>⬅ Vasak – jäта vahele</li>
-            <li>➡ Parem – lisa lemmikutesse</li>
-            <li>␣ Tühik või ❤️ – ka “meeldib”</li>
-        </ul>
-
-    </section>
-
-    <!-- Game -->
-    <section class="swipe-game" data-aos="fade-left">
+        <h1 class="main-title">Avasta uusi sihtkohti</h1>
 
         <!-- PLACE FOR CARDS -->
         <div id="stackContainer" class="stack-container"></div>
 
         <!-- Controls -->
-        <div class="swipe-controls" >
-            <button class="swipe-btn swipe-dislike" id="btnDislike">✖</button>
-            <button class="swipe-btn swipe-like" id="btnLike">❤️</button>
+        <div class="swipe-controls">
+            <button class="swipe-btn swipe-dislike" id="btnDislike">
+                <i class="fas fa-times"></i>
+            </button>
+            <button class="swipe-btn swipe-like" id="btnLike">
+                <i class="fas fa-heart"></i>
+            </button>
         </div>
 
         <!-- End message -->
         <div class="swipe-end" id="swipeEnd" hidden>
-            <h2>Oled kõik riigid läbi vaadanud!</h2>
+            <h2>🎉 Oled kõik riigid läbi vaadanud!</h2>
             <a href="results.html" class="swipe-results-link">Vaata tulemusi</a>
         </div>
-
-        <!-- Test JSON output -->
-        <div id="jsonTest"></div>
 
     </section>
 </main>
