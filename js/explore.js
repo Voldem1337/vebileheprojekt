@@ -1,3 +1,6 @@
+
+//import { likedCountries } from "./results.js";
+
 // Initialize AOS animations
 document.addEventListener('DOMContentLoaded', () => {
   AOS.init({
