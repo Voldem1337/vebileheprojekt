@@ -17,6 +17,22 @@
   padding: 3rem 10%;
 }
 
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #DEB887 0%, #ffffff 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1 {
+  
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .footer-left img {
   display: block;
   margin-bottom: 1rem;
