@@ -6,96 +6,68 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="../css/explore.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
-    <!-- anomation-->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- AOS animations -->
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-    <!-- js and logic-->
-    <script src="../js/countries.js" defer></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
 
-
-
-<script>
-  AOS.init();
-</script>
-
-
-
-
+    <!-- Main JS -->
+    <script src="../js/explore.js" defer></script>
 </head>
+
 <body>
 
+<!-- Back to Top button -->
+<button id="toTopBtn" class="to-top-btn">↑</button>
 
-
-<!-- =============================
-            MAIN LAYOUT
-================================= -->
+<!-- Help Icon with Tooltip -->
+<div class="help-container">
+    <div class="help-icon">
+        <i class="fas fa-question-circle"></i>
+    </div>
+    <div class="help-tooltip">
+        <h3>Kuidas mängida?</h3>
+        <ul>
+            <li><i class="fas fa-arrow-left"></i> Swipe vasakule – jäta vahele</li>
+            <li><i class="fas fa-arrow-right"></i> Swipe paremale – lisa lemmikutesse</li>
+            <li><i class="fas fa-heart"></i> Vajuta ❤️ või tühikut – meeldib</li>
+            <li><i class="fas fa-mouse"></i> Lohista kaarte hiirega</li>
+        </ul>
+        <p>Kõik lemmikud salvestatakse tulemuste lehele!</p>
+    </div>
+</div>
 
 <main class="swipe-layout">
 
-    <!-- Left panel -->
-    <section class="swipe-info" data-aos="fade-right">
-        <h1>Avasta uusi sihtkohti</h1>
-        <p>
-            Swipe paremale, kui riik sulle meeldib. Swipe vasakule, kui ei kõneta.
-            Kõik lemmikud salvestatakse sinu tulemuste lehele.
-        </p>
+    <!-- Game Section (centered) -->
+    <section class="swipe-game" data-aos="fade-up">
 
-        <ul class="swipe-hints">
-            <li>⬅ Vasak – jäta vahele</li>
-            <li>➡ Parem – lisa lemmikutesse</li>
-            <li>␣ Tühik või ❤️ – ka “meeldib”</li>
-        </ul>
-    </section>
+        <h1 class="main-title">Avasta uusi sihtkohti</h1>
 
+        <!-- PLACE FOR CARDS -->
+        <div id="stackContainer" class="stack-container"></div>
 
-    <!-- Game -->
-    <section class="swipe-game" data-aos="fade-left">
-
-        <div class="swipe-card-shell">
-            <div class="swipe-card" id="swipeCard">
-
-                <div class="swipe-card-image" id="countryImage"></div>
-
-                <div class="swipe-card-content">
-                    <h2 id="countryName">Country name</h2>
-                    <p id="countryTagline">Short description.</p>
-
-                    <div class="swipe-meta">
-                        <span id="countryClimate"></span>
-                        <span id="countryCost"></span>
-                        <span id="countrySafety"></span>
-                        <span id="countryResort"></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Buttons -->
-        <div class="swipe-controls" data-aos="zoom-in" data-aos-delay="150">
-            <button class="swipe-btn swipe-dislike" id="btnDislike" aria-label="Dislike">
-                ✖
+        <!-- Controls -->
+        <div class="swipe-controls">
+            <button class="swipe-btn swipe-dislike" id="btnDislike">
+                <i class="fas fa-times"></i>
             </button>
-            <button class="swipe-btn swipe-like" id="btnLike" aria-label="Like">
-                ❤️
+            <button class="swipe-btn swipe-like" id="btnLike">
+                <i class="fas fa-heart"></i>
             </button>
         </div>
 
-        <!-- when list is empty -->
-        <div class="swipe-end" id="swipeEnd" hidden data-aos="fade-up">
-            <h2>Oled kõik riigid läbi vaadanud!</h2>
-            <p>Vaata oma lemmikuid tulemuste lehel.</p>
+        <!-- End message -->
+        <div class="swipe-end" id="swipeEnd" hidden>
+            <h2>🎉 Oled kõik riigid läbi vaadanud!</h2>
             <a href="results.html" class="swipe-results-link">Vaata tulemusi</a>
         </div>
 
     </section>
-
 </main>
 
-
 <!-- FOOTER -->
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 <footer class="footer" id="contact">
 
   <div class="footer-left" data-aos="fade-right">
@@ -103,15 +75,9 @@
     <p>Avasta maailma mängides</p>
 
     <div class="social-container">
-      <a href="https://www.instagram.com/" target="_blank" class="social-btn instagram">
-        <i class="fa-brands fa-instagram"></i>
-      </a>
-      <a href="https://www.facebook.com/" target="_blank" class="social-btn facebook">
-        <i class="fa-brands fa-facebook-f"></i>
-      </a>
-      <a href="https://www.tiktok.com/" target="_blank" class="social-btn tiktok">
-        <i class="fa-brands fa-tiktok"></i>
-      </a>
+      <a href="https://www.instagram.com/" class="social-btn instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.facebook.com/" class="social-btn facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="https://www.tiktok.com/" class="social-btn tiktok"><i class="fa-brands fa-tiktok"></i></a>
     </div>
   </div>
 
@@ -123,10 +89,8 @@
       <li><a href="#about">Meist</a></li>
     </ul>
   </div>
+
 </footer>
-
-
-
 
 </body>
 </html>
