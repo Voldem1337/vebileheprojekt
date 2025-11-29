@@ -248,12 +248,11 @@ function showEndMessage() {
     swipeControls.style.display = 'none';
   }, 300);
 
-  // Show end message
-  swipeEnd.hidden = false;
-  swipeEnd.style.animation = 'fadeInUp 0.6s ease';
-
-  // Create confetti
-  createConfetti();
+  // Show end message with slight delay to ensure positioning
+  setTimeout(() => {
+    swipeEnd.classList.add('show');
+    createConfetti();
+  }, 100);
 }
 
 // ===== CONFETTI ANIMATION =====
