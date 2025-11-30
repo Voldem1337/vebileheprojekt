@@ -181,3 +181,26 @@ observer.observe(document.querySelector("#stats"));
 
 
 window.addEventListener("scroll", startRollingCounters);
+// fix video bug when loaded again
+document.addEventListener('DOMContentLoaded', function() {
+  const video = document.querySelector('.background-video');
+
+  // on load
+  if (video) {
+    video.play();
+  }
+
+  // when browser is opened again taking data from cache
+  window.addEventListener('pageshow', function(event) {
+    if (event.persisted && video) {
+      video.play();
+    }
+  });
+
+  // additional check
+  window.addEventListener('focus', function() {
+    if (video && video.paused) {
+      video.play();
+    }
+  });
+});
