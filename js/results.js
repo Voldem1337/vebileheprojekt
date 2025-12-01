@@ -11,12 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
 // ===== LAADI TULEMUSED =====
 async function loadResults() {
   const likedCountries = JSON.parse(localStorage.getItem('likedCountries')) || [];
-  const resultsGrid = document.getElementById('resultsGrid');
+  const carouselSlide = document.getElementById('carouselSlide');
+  const carouselContainer = document.querySelector('.carousel-container');
   const emptyState = document.getElementById('emptyState');
 
   // Kui pole meelditud riike, näita tühja olekut
   if (likedCountries.length === 0) {
-    resultsGrid.style.display = 'none';
+    if (carouselContainer) carouselContainer.style.display = 'none';
     emptyState.hidden = false;
     return;
   }
@@ -31,66 +32,90 @@ async function loadResults() {
     console.error('Viga countries.json laadimisel:', error);
   }
 
-  // Näita tulemusi
-  resultsGrid.style.display = 'grid';
+  // Näita karusselli
+  if (carouselContainer) carouselContainer.style.display = 'block';
   emptyState.hidden = true;
 
   // Loo kaardid - ühenda meelditud riigid täielike andmetega JSON-ist
-  likedCountries.forEach((country, index) => {
+  likedCountries.forEach((country) => {
     // Leia täielik riigi andmestik nime järgi
     const fullCountryData = countriesData.find(c => c.name === country.name) || country;
-    const card = createResultCard(fullCountryData, index);
-    resultsGrid.appendChild(card);
+    const item = createCarouselItem(fullCountryData);
+    carouselSlide.appendChild(item);
   });
+
+  // Käivita karusselli navigeerimine
+  initCarousel();
 }
 
-// ===== LOO TULEMUSTE KAART =====
-function createResultCard(country, index) {
-  const card = document.createElement('div');
-  card.className = 'result-card';
-  card.setAttribute('data-aos', 'fade-up');
-  card.setAttribute('data-aos-delay', Math.min(index * 100, 500));
+// ===== LOO KARUSSELLI ELEMENT =====
+function createCarouselItem(country) {
+  const item = document.createElement('div');
+  item.className = 'item';
+  item.style.backgroundImage = `url('${country.image}')`;
 
-  // Kaardi pilt
-  const img = document.createElement('img');
-  img.src = country.image;
-  img.alt = country.name;
+  const content = document.createElement('div');
+  content.className = 'content';
 
-  // Kaardi ülekate
-  const overlay = document.createElement('div');
-  overlay.className = 'result-card-overlay';
-  overlay.innerHTML = `
-    <h3>${country.name}</h3>
-    <div class="card-guide-hint">
-      <i class="fas fa-external-link-alt"></i>
-      <span>Kliki, et näha reisijuhti</span>
-    </div>
-  `;
+  const name = document.createElement('div');
+  name.className = 'name';
+  name.textContent = country.name;
 
-  card.appendChild(img);
-  card.appendChild(overlay);
+  const des = document.createElement('div');
+  des.className = 'des';
+  des.textContent = country.description || 'Avasta see imeline sihtkoht!';
 
-  // Lisa klõpsu käsitleja - ava juhendi URL
-  card.addEventListener('click', (e) => {
-    e.preventDefault();
-    console.log('Klõpsatud riik:', country.name);
-    console.log('Juhendi URL:', country.guideUrl);
+  const seeMore = document.createElement('a');
+  seeMore.className = 'seeMore';
+  seeMore.target = '_blank';
+  seeMore.rel = 'noopener noreferrer';
 
-    if (country.guideUrl) {
-      console.log('Avan guideUrl:', country.guideUrl);
-      window.open(country.guideUrl, '_blank', 'noopener,noreferrer');
-    } else {
-      console.log('guideUrl puudub, avan Google otsingu');
-      // Tagavaravariant kui guideUrl puudub - otsi Google'st
-      const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(country.name + ' travel guide')}`;
-      window.open(searchUrl, '_blank', 'noopener,noreferrer');
+  // Määra link guideUrl või Google otsingu järgi
+  if (country.guideUrl) {
+    seeMore.href = country.guideUrl;
+  } else {
+    seeMore.href = `https://www.google.com/search?q=${encodeURIComponent(country.name + ' travel guide')}`;
+  }
+
+  const button = document.createElement('button');
+  button.textContent = 'Vaata rohkem';
+
+  seeMore.appendChild(button);
+  content.appendChild(name);
+  content.appendChild(des);
+  content.appendChild(seeMore);
+  item.appendChild(content);
+
+  return item;
+}
+
+// ===== KARUSSELLI NAVIGEERIMINE =====
+function initCarousel() {
+  const next = document.querySelector('.next');
+  const prev = document.querySelector('.prev');
+
+  if (next) {
+    next.addEventListener('click', function () {
+      let items = document.querySelectorAll('.item');
+      document.querySelector('.slide').appendChild(items[0]);
+    });
+  }
+
+  if (prev) {
+    prev.addEventListener('click', function () {
+      let items = document.querySelectorAll('.item');
+      document.querySelector('.slide').prepend(items[items.length - 1]);
+    });
+  }
+
+  // Klaviatuuri tugi
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft' && prev) {
+      prev.click();
+    } else if (e.key === 'ArrowRight' && next) {
+      next.click();
     }
   });
-
-  // Veendu, et ülekate ei blokeeri klõpse
-  card.style.cursor = 'pointer';
-
-  return card;
 }
 
 // ===== TAGASI ÜLES NUPP =====
