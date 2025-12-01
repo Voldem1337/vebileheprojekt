@@ -9,13 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ===== LOAD RESULTS =====
-function loadResults() {
+async function loadResults() {
   const likedCountries = JSON.parse(localStorage.getItem('likedCountries')) || [];
   const resultsGrid = document.getElementById('resultsGrid');
   const emptyState = document.getElementById('emptyState');
-
-  // Debug: check what's in localStorage
-  console.log('Liked countries from localStorage:', likedCountries);
 
   // If no liked countries, show empty state
   if (likedCountries.length === 0) {
@@ -24,14 +21,25 @@ function loadResults() {
     return;
   }
 
+  // Load full country data from JSON to get guideUrl
+  let countriesData = [];
+  try {
+    const response = await fetch('../database/countries.json');
+    const data = await response.json();
+    countriesData = data.countriesData;
+  } catch (error) {
+    console.error('Error loading countries.json:', error);
+  }
+
   // Show results
   resultsGrid.style.display = 'grid';
   emptyState.hidden = true;
 
-  // Create cards
+  // Create cards - merge liked countries with full data from JSON
   likedCountries.forEach((country, index) => {
-    console.log('Country data:', country); // Debug each country
-    const card = createResultCard(country, index);
+    // Find full country data by name
+    const fullCountryData = countriesData.find(c => c.name === country.name) || country;
+    const card = createResultCard(fullCountryData, index);
     resultsGrid.appendChild(card);
   });
 }

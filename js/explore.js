@@ -184,6 +184,7 @@ function onDragEnd(e) {
 // ===== SWIPE ACTIONS =====
 function swipeRight() {
   animateCardOut(currentCard, 'right');
+  // Save FULL country object with ALL data including guideUrl
   saveCountry(countries[currentIndex]);
   nextCard();
 }
@@ -208,9 +209,11 @@ function nextCard() {
 }
 
 function saveCountry(country) {
+  // Save entire country object (includes name, image, guideUrl, etc.)
   if (!likedCountries.find(c => c.name === country.name)) {
     likedCountries.push(country);
     localStorage.setItem('likedCountries', JSON.stringify(likedCountries));
+    console.log('Saved country:', country); // Debug
   }
 }
 
@@ -241,18 +244,55 @@ document.addEventListener('keydown', (e) => {
 
 // ===== END MESSAGE WITH CONFETTI =====
 function showEndMessage() {
-  // Hide buttons
+  const saved = JSON.parse(localStorage.getItem('likedCountries')) || [];
+
+  // Hide controls
   swipeControls.style.opacity = '0';
   swipeControls.style.transform = 'scale(0.8)';
   setTimeout(() => {
     swipeControls.style.display = 'none';
   }, 300);
 
-  // Show end message with slight delay to ensure positioning
+  // Show end block
   setTimeout(() => {
     swipeEnd.classList.add('show');
-    createConfetti();
-  }, 100);
+
+    // ========= CASE 1: USER SELECTED ZERO COUNTRIES =========
+    if (countries.length === 0) {
+      swipeEnd.innerHTML = `
+        <h2>Kahjuks sa ei valinud ühtegi riiki.</h2>
+        <p>Tulemuste nägemiseks vali vähemalt üks riik.</p>
+        <button id="restartBtn" class="swipe-results-link">
+          Alusta uuesti
+        </button>
+      `;
+
+      document.getElementById("restartBtn").addEventListener("click", () => {
+        // Clear selections
+        localStorage.removeItem("likedCountries");
+        // Restart game
+        currentIndex = 0;
+        swipeEnd.classList.remove("show");
+
+        swipeControls.style.display = "flex";
+        swipeControls.style.opacity = "1";
+
+        renderCards();
+      });
+
+      return; // stop here!
+    }
+
+    // ========= CASE 2: USER SELECTED 1+ COUNTRIES =========
+    createConfetti(); // You already have this function
+
+    swipeEnd.innerHTML = `
+      <h2>Oled kõik riigid läbi vaadanud!</h2>
+      <a id="resultsLink" href="results.html" class="swipe-results-link">
+        Vaata tulemusi
+      </a>
+    `;
+  }, 150);
 }
 
 // ===== CONFETTI ANIMATION =====
