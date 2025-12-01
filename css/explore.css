@@ -425,6 +425,7 @@ body {
 .footer-right ul li a:hover {
   opacity: 1;
   transform: translateY(-2px);
+    color: #DEB887;
 }
 
 /* ===== RESPONSIVE ===== */
