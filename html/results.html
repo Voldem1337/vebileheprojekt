@@ -1,23 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="et">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <script src="../js/results.js"></script>
-    <link rel="stylesheet" href="../css/index.css">
-    <link rel="stylesheet" href="../css/results.css">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-    <h1>Hello World</h1>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tulemused – TravelSwipe</title>
 
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/results.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- AOS animations -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+
+    <!-- Main JS -->
+    <script src="../js/results.js" defer></script>
 </head>
+
 <body>
 
+<!-- Back to Top button -->
+<button id="toTopBtn" class="to-top-btn">↑</button>
 
-</body>
+<main class="results-layout">
+
+    <section class="results-header" data-aos="fade-down">
+        <h1>Sinu lemmikud</h1>
+        <p>Riigid, mis sulle meeldisid</p>
+    </section>
+
+    <!-- Results Container -->
+    <section class="results-content" data-aos="fade-up">
+        <div id="resultsGrid" class="results-grid">
+            <!-- Cards will be inserted here by JS -->
+        </div>
+
+        <!-- Empty State -->
+        <div id="emptyState" class="empty-state" hidden>
+            <div class="empty-icon">
+                <i class="fas fa-heart-broken"></i>
+            </div>
+            <h2>Teil pole veel lemmikuid</h2>
+            <p>Alusta riikide avastamist ja lisa oma lemmikud!</p>
+            <a href="explore.html" class="explore-btn">Alusta valikut</a>
+        </div>
+    </section>
+
+</main>
+
 <!-- FOOTER -->
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 <footer class="footer" id="contact">
 
   <div class="footer-left" data-aos="fade-right">
@@ -25,15 +56,9 @@
     <p>Avasta maailma mängides</p>
 
     <div class="social-container">
-      <a href="https://www.instagram.com/" target="_blank" class="social-btn instagram">
-        <i class="fa-brands fa-instagram"></i>
-      </a>
-      <a href="https://www.facebook.com/" target="_blank" class="social-btn facebook">
-        <i class="fa-brands fa-facebook-f"></i>
-      </a>
-      <a href="https://www.tiktok.com/" target="_blank" class="social-btn tiktok">
-        <i class="fa-brands fa-tiktok"></i>
-      </a>
+      <a href="https://www.instagram.com/" class="social-btn instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.facebook.com/" class="social-btn facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="https://www.tiktok.com/" class="social-btn tiktok"><i class="fa-brands fa-tiktok"></i></a>
     </div>
   </div>
 
@@ -45,5 +70,8 @@
       <li><a href="#about">Meist</a></li>
     </ul>
   </div>
+
 </footer>
+
+</body>
 </html>

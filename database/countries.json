@@ -7,7 +7,8 @@
       "climate": "Mõõdukas",
       "cost": "Keskmine",
       "resortRating": 6,
-      "description": "Väike ja turvaline riik, kus on palju metsi, järvi ja ilus pealinn Tallinn."
+      "description": "Väike ja turvaline riik, kus on palju metsi, järvi ja ilus pealinn Tallinn.",
+      "guideUrl": "https://www.visitestonia.com/et"
     },
     {
       "name": "Hispaania",
@@ -16,7 +17,8 @@
       "climate": "Soe ja päikeseline",
       "cost": "Keskmisest kõrgem",
       "resortRating": 9,
-      "description": "Rikkalik kultuur, maitsev toit ja ilusad rannad. Ideaalne suvine sihtkoht."
+      "description": "Rikkalik kultuur, maitsev toit ja ilusad rannad. Ideaalne suvine sihtkoht.",
+      "guideUrl": "https://www.spain.info/en/"
     },
     {
       "name": "Portugal",
@@ -25,7 +27,8 @@
       "climate": "Soe ja päikeseline",
       "cost": "Keskmine",
       "resortRating": 8,
-      "description": "Ilu rannad, maalilised linnad ja suurepärane vein. Ideaalne suvine ja kultuurireisiks."
+      "description": "Ilu rannad, maalilised linnad ja suurepärane vein. Ideaalne suvine ja kultuurireisiks.",
+      "guideUrl": "https://www.visitportugal.com/en"
     },
     {
       "name": "Malta",
@@ -34,7 +37,8 @@
       "climate": "Soe ja päikeseline",
       "cost": "Keskmisest kõrgem",
       "resortRating": 8,
-      "description": "Väike saareriik Vahemeres, ajalooline ja täis rannamõnusid."
+      "description": "Väike saareriik Vahemeres, ajalooline ja täis rannamõnusid.",
+      "guideUrl": "https://www.visitmalta.com/en/"
     },
     {
       "name": "Prantsusmaa",
@@ -43,7 +47,8 @@
       "climate": "Mõõdukas",
       "cost": "Keskmisest kõrgem",
       "resortRating": 8,
-      "description": "Rikas kultuur, maailmakuulus köök ja romantilised linnad. Populaarne turismi- ja toidusihtkoht."
+      "description": "Rikas kultuur, maailmakuulus köök ja romantilised linnad. Populaarne turismi- ja toidusihtkoht.",
+      "guideUrl": "https://www.france.fr/en"
     },
     {
       "name": "Holland",
@@ -52,7 +57,8 @@
       "climate": "Mõõdukas",
       "cost": "Keskmine",
       "resortRating": 7,
-      "description": "Kanalid ja muuseumid. Väga turvaline ja mugav turistidele."
+      "description": "Kanalid ja muuseumid. Väga turvaline ja mugav turistidele.",
+      "guideUrl": "https://www.holland.com/global/tourism.htm"
     },
     {
       "name": "Jaapan",
@@ -61,7 +67,8 @@
       "climate": "Muutlik – jahedad talved, niisked suved",
       "cost": "Kõrge",
       "resortRating": 8,
-      "description": "Unikaalne segu traditsioonidest ja tehnoloogiast. Väga puhas ja turvaline riik."
+      "description": "Unikaalne segu traditsioonidest ja tehnoloogiast. Väga puhas ja turvaline riik.",
+      "guideUrl": "https://www.japan.travel/en/"
     },
     {
       "name": "Soome",
@@ -70,7 +77,8 @@
       "climate": "Külm",
       "cost": "Keskmisest kõrgem",
       "resortRating": 6,
-      "description": "Rahulik loodus, saunad ja järved. Sobib talviseks puhkuseks ja looduse nautimiseks."
+      "description": "Rahulik loodus, saunad ja järved. Sobib talviseks puhkuseks ja looduse nautimiseks.",
+      "guideUrl": "https://www.visitfinland.com/en/"
     },
     {
       "name": "Saksamaa",
@@ -79,7 +87,8 @@
       "climate": "Mõõdukas",
       "cost": "Keskmine",
       "resortRating": 7,
-      "description": "Arhitektuur ja ajalugu on silmapaistvad, paljud festivalid ja ilus loodus."
+      "description": "Arhitektuur ja ajalugu on silmapaistvad, paljud festivalid ja ilus loodus.",
+      "guideUrl": "https://www.germany.travel/en/home.html"
     },
     {
       "name": "Rootsi",
@@ -88,7 +97,8 @@
       "climate": "Mõõdukas",
       "cost": "Kõrge",
       "resortRating": 7,
-      "description": "Stiilne ja turvaline, loodus ja linnad tasakaalus. Populaarne linnapuhkuseks ja talispordiks."
+      "description": "Stiilne ja turvaline, loodus ja linnad tasakaalus. Populaarne linnapuhkuseks ja talispordiks.",
+      "guideUrl": "https://visitsweden.com/"
     },
     {
       "name": "Norra",
@@ -97,7 +107,8 @@
       "climate": "Külm ja mõõdukas",
       "cost": "Kõrge",
       "resortRating": 7,
-      "description": "Fjordid, põhjapõdrad ja ilus loodus. Sobib matkajatele ja loodusearmastajatele."
+      "description": "Fjordid, põhjapõdrad ja ilus loodus. Sobib matkajatele ja loodusearmastajatele.",
+      "guideUrl": "https://www.visitnorway.com/"
     },
     {
       "name": "Kreeka",
@@ -106,7 +117,8 @@
       "climate": "Soe ja päikeseline",
       "cost": "Keskmine",
       "resortRating": 9,
-      "description": "Valged majad, sinine meri ja soe külalislahkus. Ideaalne rannapuhkuseks."
+      "description": "Valged majad, sinine meri ja soe külalislahkus. Ideaalne rannapuhkuseks.",
+      "guideUrl": "https://www.visitgreece.gr/"
     },
     {
       "name": "Itaalia",
@@ -115,7 +127,8 @@
       "climate": "Mõõdukas kuni soe",
       "cost": "Keskmine",
       "resortRating": 8,
-      "description": "Kunsti, ajalooga ja maailmakuulsa köögiga riik. Populaarne turistidele ja toiduhuvilistele."
+      "description": "Kunsti, ajalooga ja maailmakuulsa köögiga riik. Populaarne turistidele ja toiduhuvilistele.",
+      "guideUrl": "https://www.italia.it/en"
     },
     {
       "name": "Belgia",
@@ -124,7 +137,8 @@
       "climate": "Mõõdukas",
       "cost": "Keskmine",
       "resortRating": 7,
-      "description": "Šokolaad, käsitööõlu ja ajaloolised linnad. Lühike ja huvitav linnapuhkus."
+      "description": "Šokolaad, käsitööõlu ja ajaloolised linnad. Lühike ja huvitav linnapuhkus.",
+      "guideUrl": "https://www.visitflanders.com/en"
     },
     {
       "name": "Horvaatia",
@@ -133,7 +147,8 @@
       "climate": "Soe ja päikeseline",
       "cost": "Keskmine",
       "resortRating": 8,
-      "description": "Kaunid rannad, ajaloolised linnad ja kristallselge meri. Populaarne suvepuhkuse sihtkoht."
+      "description": "Kaunid rannad, ajaloolised linnad ja kristallselge meri. Populaarne suvepuhkuse sihtkoht.",
+      "guideUrl": "https://croatia.hr/en-gb"
     },
     {
       "name": "Šveits",
@@ -142,7 +157,8 @@
       "climate": "Mõõdukas kuni külm",
       "cost": "Kõrge",
       "resortRating": 9,
-      "description": "Alpid, matkarajad, luksuslikud linnad ja talispordi võimalused."
+      "description": "Alpid, matkarajad, luksuslikud linnad ja talispordi võimalused.",
+      "guideUrl": "https://www.myswitzerland.com/en/"
     },
     {
       "name": "Tšehhi",
@@ -151,7 +167,8 @@
       "climate": "Soe",
       "cost": "Pigem odav",
       "resortRating": 7,
-      "description": "Ajalooline Praha ja taskukohane hind teevad sellest populaarse sihtkoha kultuurihuvilistele."
+      "description": "Ajalooline Praha ja taskukohane hind teevad sellest populaarse sihtkoha kultuurihuvilistele.",
+      "guideUrl": "https://www.visitczechrepublic.com/en-US"
     },
     {
       "name": "Bulgaaria",
@@ -160,7 +177,8 @@
       "climate": "Soe",
       "cost": "Odav",
       "resortRating": 8,
-      "description": "Soe kliima, ilusad rannad Musta mere ääres ja taskukohased hinnad."
+      "description": "Soe kliima, ilusad rannad Musta mere ääres ja taskukohased hinnad.",
+      "guideUrl": "https://bulgariatravel.org/en/"
     },
     {
       "name": "Ühendkuningriik",
@@ -169,7 +187,8 @@
       "climate": "Mõõdukas ja vihmane",
       "cost": "Kõrge",
       "resortRating": 7,
-      "description": "Ajalooline ja mitmekesine riik, kus leidub nii Londoni suurlinnaelu kui ka Šotimaa looduskauneid maastikke."
+      "description": "Ajalooline ja mitmekesine riik, kus leidub nii Londoni suurlinnaelu kui ka Šotimaa looduskauneid maastikke.",
+      "guideUrl": "https://www.visitbritain.com/"
     },
     {
       "name": "Türgi",
@@ -178,7 +197,8 @@
       "climate": "Soe ja kuiv",
       "cost": "Madal",
       "resortRating": 8,
-      "description": "Populaarne turismimaa, tuntud oma ajaloo, rannaelu ja toidu poolest."
+      "description": "Populaarne turismimaa, tuntud oma ajaloo, rannaelu ja toidu poolest.",
+      "guideUrl": "https://goturkiye.com/"
     }
   ]
 }
