@@ -1,4 +1,4 @@
-// Initialize AOS animations
+// Käivita AOS animatsioonid
 document.addEventListener('DOMContentLoaded', () => {
   AOS.init({
     duration: 800,
@@ -6,72 +6,73 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// ===== CARD DATA & STATE =====
-let countries = [];
-let currentIndex = 0;
-let likedCountries = [];
+// ===== KAARDI ANDMED & OLEK =====
+let countries = []; // Kõik riigid JSON failist
+let currentIndex = 0; // Praegune kaardi indeks
+let likedCountries = []; // Meelditud riigid (salvestan localStorage'sse)
 
-// ===== DOM ELEMENTS =====
-const stackContainer = document.getElementById('stackContainer');
-const btnLike = document.getElementById('btnLike');
-const btnDislike = document.getElementById('btnDislike');
-const swipeEnd = document.getElementById('swipeEnd');
-const swipeControls = document.querySelector('.swipe-controls');
+// ===== DOM ELEMENDID =====
+const stackContainer = document.getElementById('stackContainer'); // Konteiner kaartide kuhjale
+const btnLike = document.getElementById('btnLike'); // Meeldib nupp
+const btnDislike = document.getElementById('btnDislike'); // Ei meeldi nupp
+const swipeEnd = document.getElementById('swipeEnd'); // Lõpu sõnum
+const swipeControls = document.querySelector('.swipe-controls'); // Juhtimise nupud
 
-// ===== LOAD JSON DATA =====
+// ===== LAADI JSON ANDMED =====
 async function loadCountries() {
   try {
+    // Tühjenda eelmised valikud kui lehele sisestatakse
+    // Et alustada mängu algusest
+    localStorage.removeItem('likedCountries');
+    likedCountries = [];
+
+    // Tõmba riikide andmed JSON failist
     const response = await fetch('../database/countries.json');
     const data = await response.json();
     countries = data.countriesData;
 
-    // Load saved likes from localStorage
-    const saved = localStorage.getItem('likedCountries');
-    if (saved) {
-      likedCountries = JSON.parse(saved);
-    }
-
-    // Render first cards
+    // Kuva esimesed kaardid
     renderCards();
   } catch (error) {
-    console.error('Error loading countries:', error);
+    console.error('Viga riikide laadimisel:', error);
     stackContainer.innerHTML = '<p style="color: red;">Viga andmete laadimisel</p>';
   }
 }
 
-// ===== RENDER CARDS =====
+// ===== KUVA KAARDID =====
 function renderCards() {
   stackContainer.innerHTML = '';
 
-  // Show 3 cards in stack (current + 2 preview)
+  // Näita 3 kaarti kuhjas (praegune + 2 eelvaadet)
   for (let i = 0; i < 3; i++) {
     const index = currentIndex + i;
-    if (index >= countries.length) break;
+    if (index >= countries.length) break; // Kui kaarte pole enam, lõpeta
 
     const card = createCard(countries[index], i);
     stackContainer.appendChild(card);
   }
 
-  // If no more cards, show end message
+  // Kui kaarte pole enam, näita lõpusõnumit
   if (currentIndex >= countries.length) {
     showEndMessage();
   }
 }
 
-// ===== CREATE CARD ELEMENT =====
+// ===== LOO KAARDI ELEMENT =====
 function createCard(country, stackPosition) {
   const card = document.createElement('div');
   card.className = 'swipe-card';
+  // Määra z-index ja transformatsioon kuhja efekti jaoks
   card.style.zIndex = 100 - stackPosition;
   card.style.transform = `scale(${1 - stackPosition * 0.05}) translateY(${stackPosition * 10}px)`;
 
-  // Card image
+  // Kaardi pilt
   const img = document.createElement('img');
   img.src = country.image;
   img.alt = country.name;
   img.className = 'card-image';
 
-  // Card info overlay (appears on hover)
+  // Kaardi info ülekate (ilmub hiirega üle sõitmisel)
   const overlay = document.createElement('div');
   overlay.className = 'card-overlay';
   overlay.innerHTML = `
@@ -100,7 +101,7 @@ function createCard(country, stackPosition) {
   card.appendChild(img);
   card.appendChild(overlay);
 
-  // Only add swipe to top card
+  // Lisa swipe kuulajad ainult ülemisele kaardile
   if (stackPosition === 0) {
     addSwipeListeners(card);
   }
@@ -108,31 +109,31 @@ function createCard(country, stackPosition) {
   return card;
 }
 
-// ===== GENERATE STARS (1-10 scale to 5 stars) =====
+// ===== GENEREERI TÄHED (1-10 skaalast 5 tähte) =====
 function generateStars(rating) {
-  const stars = Math.round(rating / 2); // Convert 1-10 to 1-5
+  const stars = Math.round(rating / 2); // Teisenda 1-10 skaalast 1-5 skaalale
   let html = '';
   for (let i = 1; i <= 5; i++) {
-    html += i <= stars ? '★' : '☆';
+    html += i <= stars ? '★' : '☆'; // Täidetud või tühi täht
   }
   return html;
 }
 
-// ===== SWIPE FUNCTIONALITY =====
-let startX = 0;
-let currentX = 0;
-let isDragging = false;
-let currentCard = null;
+// ===== SWIPE FUNKTSIOON =====
+let startX = 0; // Algne X positsioon
+let currentX = 0; // Praegune X positsioon
+let isDragging = false; // Kas lohistatakse
+let currentCard = null; // Praegune kaart
 
 function addSwipeListeners(card) {
   currentCard = card;
 
-  // Mouse events
+  // Hiire sündmused (arvutile)
   card.addEventListener('mousedown', onDragStart);
   document.addEventListener('mousemove', onDragMove);
   document.addEventListener('mouseup', onDragEnd);
 
-  // Touch events (for mobile)
+  // Puudutus sündmused (mobiilile)
   card.addEventListener('touchstart', onDragStart);
   document.addEventListener('touchmove', onDragMove);
   document.addEventListener('touchend', onDragEnd);
@@ -140,20 +141,23 @@ function addSwipeListeners(card) {
 
 function onDragStart(e) {
   isDragging = true;
+  // Salvesta algne X positsioon (hiir või puudutus)
   startX = e.type === 'mousedown' ? e.clientX : e.touches[0].clientX;
-  currentCard.style.transition = 'none';
+  currentCard.style.transition = 'none'; // Eemalda animatsioon lohistamise ajal
 }
 
 function onDragMove(e) {
-  if (!isDragging) return;
+  if (!isDragging) return; // Kui ei lohistata, ära tee midagi
 
+  // Hangi praegune X positsioon
   currentX = e.type === 'mousemove' ? e.clientX : e.touches[0].clientX;
-  const deltaX = currentX - startX;
-  const rotation = deltaX / 20;
+  const deltaX = currentX - startX; // Arvuta liikumise kaugus
+  const rotation = deltaX / 20; // Arvuta pöördenurk
 
+  // Liiguta ja pööra kaarti
   currentCard.style.transform = `translateX(${deltaX}px) rotate(${rotation}deg)`;
 
-  // Visual feedback
+  // Visuaalne tagasiside - vähenda läbipaistvust kui liigutakse kaugele
   if (Math.abs(deltaX) > 50) {
     currentCard.style.opacity = 1 - Math.abs(deltaX) / 300;
   }
@@ -163,102 +167,104 @@ function onDragEnd(e) {
   if (!isDragging) return;
   isDragging = false;
 
-  const deltaX = currentX - startX;
-  const threshold = 100;
+  const deltaX = currentX - startX; // Arvuta kogukaugus
+  const threshold = 100; // Künnispunkt swipe'i tuvastamiseks
 
   if (Math.abs(deltaX) > threshold) {
-    // Swipe detected
+    // Swipe tuvastatud - kontrolli suunda
     if (deltaX > 0) {
-      swipeRight();
+      swipeRight(); // Paremale - meeldib
     } else {
-      swipeLeft();
+      swipeLeft(); // Vasakule - ei meeldi
     }
   } else {
-    // Return to center
+    // Tagasi keskele - swipe ei olnud piisavalt tugev
     currentCard.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
     currentCard.style.transform = '';
     currentCard.style.opacity = '1';
   }
 }
 
-// ===== SWIPE ACTIONS =====
+// ===== SWIPE TEGEVUSED =====
 function swipeRight() {
-  animateCardOut(currentCard, 'right');
-  // Save FULL country object with ALL data including guideUrl
+  animateCardOut(currentCard, 'right'); // Animeeri kaart välja paremale
+  // Salvesta TÄIELIK riigi objekt KÕIGI andmetega, sealhulgas guideUrl
   saveCountry(countries[currentIndex]);
-  nextCard();
+  nextCard(); // Mine järgmise kaardi juurde
 }
 
 function swipeLeft() {
-  animateCardOut(currentCard, 'left');
-  nextCard();
+  animateCardOut(currentCard, 'left'); // Animeeri kaart välja vasakule
+  nextCard(); // Mine järgmise kaardi juurde (ei salvesta)
 }
 
 function animateCardOut(card, direction) {
-  const distance = direction === 'right' ? 1000 : -1000;
+  // Animeeri kaart ekraanilt välja
+  const distance = direction === 'right' ? 1000 : -1000; // Positiivne või negatiivne
   card.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
   card.style.transform = `translateX(${distance}px) rotate(${distance / 10}deg)`;
-  card.style.opacity = '0';
+  card.style.opacity = '0'; // Muuda läbipaistvaks
 }
 
 function nextCard() {
-  currentIndex++;
+  currentIndex++; // Suurenda indeksit
+  // Oota pisut enne järgmiste kaartide kuvamist
   setTimeout(() => {
     renderCards();
   }, 300);
 }
 
 function saveCountry(country) {
-  // Save entire country object (includes name, image, guideUrl, etc.)
+  // Salvesta kogu riigi objekt (sisaldab nime, pilti, guideUrl'i jne)
   if (!likedCountries.find(c => c.name === country.name)) {
     likedCountries.push(country);
     localStorage.setItem('likedCountries', JSON.stringify(likedCountries));
-    console.log('Saved country:', country); // Debug
+    console.log('Salvestatud riik:', country); // Debug
   }
 }
 
-// ===== BUTTON CONTROLS =====
+// ===== NUPPUDE JUHTIMINE =====
 btnLike.addEventListener('click', () => {
   if (currentIndex < countries.length) {
-    swipeRight();
+    swipeRight(); // Meeldib - swipe paremale
   }
 });
 
 btnDislike.addEventListener('click', () => {
   if (currentIndex < countries.length) {
-    swipeLeft();
+    swipeLeft(); // Ei meeldi - swipe vasakule
   }
 });
 
-// ===== KEYBOARD CONTROLS =====
+// ===== KLAVIATUURI JUHTIMINE =====
 document.addEventListener('keydown', (e) => {
-  if (currentIndex >= countries.length) return;
+  if (currentIndex >= countries.length) return; // Kui kaarte pole enam, ära tee midagi
 
   if (e.key === 'ArrowLeft') {
-    swipeLeft();
+    swipeLeft(); // Vasak nool - ei meeldi
   } else if (e.key === 'ArrowRight' || e.key === ' ') {
-    e.preventDefault(); // Prevent page scroll on space
-    swipeRight();
+    e.preventDefault(); // Väldi lehe kerimist tühiku vajutamisel
+    swipeRight(); // Parem nool või tühik - meeldib
   }
 });
 
-// ===== END MESSAGE WITH CONFETTI =====
+// ===== LÕPU SÕNUM KONFETTIDEGA =====
 function showEndMessage() {
   const saved = JSON.parse(localStorage.getItem('likedCountries')) || [];
 
-  // Hide controls
+  // Peida juhtimisnupud
   swipeControls.style.opacity = '0';
   swipeControls.style.transform = 'scale(0.8)';
   setTimeout(() => {
     swipeControls.style.display = 'none';
   }, 300);
 
-  // Show end block
+  // Näita lõpublokki
   setTimeout(() => {
     swipeEnd.classList.add('show');
 
-    // ========= CASE 1: USER SELECTED ZERO COUNTRIES =========
-    if (countries.length === 0) {
+    // ========= JUHTUM 1: KASUTAJA EI VALINUD ÜHTEGI RIIKI =========
+    if (saved.length === 0) {
       swipeEnd.innerHTML = `
         <h2>Kahjuks sa ei valinud ühtegi riiki.</h2>
         <p>Tulemuste nägemiseks vali vähemalt üks riik.</p>
@@ -267,10 +273,11 @@ function showEndMessage() {
         </button>
       `;
 
+      // Lisa restart nupule sündmus
       document.getElementById("restartBtn").addEventListener("click", () => {
-        // Clear selections
+        // Tühjenda valikud
         localStorage.removeItem("likedCountries");
-        // Restart game
+        // Taaskäivita mäng
         currentIndex = 0;
         swipeEnd.classList.remove("show");
 
@@ -280,11 +287,11 @@ function showEndMessage() {
         renderCards();
       });
 
-      return; // stop here!
+      return; // Lõpeta siin!
     }
 
-    // ========= CASE 2: USER SELECTED 1+ COUNTRIES =========
-    createConfetti(); // You already have this function
+    // ========= JUHTUM 2: KASUTAJA VALIS 1+ RIIKI =========
+    createConfetti(); // Loo konfettid
 
     swipeEnd.innerHTML = `
       <h2>Oled kõik riigid läbi vaadanud!</h2>
@@ -295,43 +302,43 @@ function showEndMessage() {
   }, 150);
 }
 
-// ===== CONFETTI ANIMATION =====
+// ===== KONFETTI ANIMATSIOON =====
 function createConfetti() {
   const colors = ['#ff4458', '#667eea', '#764ba2', '#FFD700', '#00d4ff', '#f093fb'];
-  const confettiCount = 100;
+  const confettiCount = 100; // Konfettide arv
 
   for (let i = 0; i < confettiCount; i++) {
     setTimeout(() => {
       const confetti = document.createElement('div');
       confetti.className = 'confetti';
-      confetti.style.left = Math.random() * 100 + '%';
-      confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
-      confetti.style.animationDelay = Math.random() * 0.3 + 's';
-      confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+      confetti.style.left = Math.random() * 100 + '%'; // Juhuslik horisontaalne positsioon
+      confetti.style.background = colors[Math.floor(Math.random() * colors.length)]; // Juhuslik värv
+      confetti.style.animationDelay = Math.random() * 0.3 + 's'; // Juhuslik viivitus
+      confetti.style.animationDuration = (Math.random() * 2 + 2) + 's'; // Juhuslik kestus
       document.body.appendChild(confetti);
 
-      // Remove after animation
+      // Eemalda pärast animatsiooni
       setTimeout(() => {
         confetti.remove();
       }, 4000);
-    }, i * 20);
+    }, i * 20); // Viivita iga konfetti loomist veidi
   }
 }
 
-// ===== BACK TO TOP BUTTON =====
+// ===== TAGASI ÜLES NUPP =====
 const toTopBtn = document.getElementById('toTopBtn');
 
 window.addEventListener('scroll', () => {
   if (window.scrollY > 300) {
-    toTopBtn.classList.add('visible');
+    toTopBtn.classList.add('visible'); // Näita nuppu kui keritakse alla
   } else {
-    toTopBtn.classList.remove('visible');
+    toTopBtn.classList.remove('visible'); // Peida nupp kui ollakse üleval
   }
 });
 
 toTopBtn.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({ top: 0, behavior: 'smooth' }); // Keri sujuvalt üles
 });
 
-// ===== START APP =====
+// ===== KÄIVITA RAKENDUS =====
 loadCountries();

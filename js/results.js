@@ -1,4 +1,4 @@
-// Initialize AOS animations
+// Käivita AOS animatsioonid
 document.addEventListener('DOMContentLoaded', () => {
   AOS.init({
     duration: 800,
@@ -8,55 +8,55 @@ document.addEventListener('DOMContentLoaded', () => {
   loadResults();
 });
 
-// ===== LOAD RESULTS =====
+// ===== LAADI TULEMUSED =====
 async function loadResults() {
   const likedCountries = JSON.parse(localStorage.getItem('likedCountries')) || [];
   const resultsGrid = document.getElementById('resultsGrid');
   const emptyState = document.getElementById('emptyState');
 
-  // If no liked countries, show empty state
+  // Kui pole meelditud riike, näita tühja olekut
   if (likedCountries.length === 0) {
     resultsGrid.style.display = 'none';
     emptyState.hidden = false;
     return;
   }
 
-  // Load full country data from JSON to get guideUrl
+  // Laadi täielikud riigi andmed JSON-ist, et saada guideUrl
   let countriesData = [];
   try {
     const response = await fetch('../database/countries.json');
     const data = await response.json();
     countriesData = data.countriesData;
   } catch (error) {
-    console.error('Error loading countries.json:', error);
+    console.error('Viga countries.json laadimisel:', error);
   }
 
-  // Show results
+  // Näita tulemusi
   resultsGrid.style.display = 'grid';
   emptyState.hidden = true;
 
-  // Create cards - merge liked countries with full data from JSON
+  // Loo kaardid - ühenda meelditud riigid täielike andmetega JSON-ist
   likedCountries.forEach((country, index) => {
-    // Find full country data by name
+    // Leia täielik riigi andmestik nime järgi
     const fullCountryData = countriesData.find(c => c.name === country.name) || country;
     const card = createResultCard(fullCountryData, index);
     resultsGrid.appendChild(card);
   });
 }
 
-// ===== CREATE RESULT CARD =====
+// ===== LOO TULEMUSTE KAART =====
 function createResultCard(country, index) {
   const card = document.createElement('div');
   card.className = 'result-card';
   card.setAttribute('data-aos', 'fade-up');
   card.setAttribute('data-aos-delay', Math.min(index * 100, 500));
 
-  // Card image
+  // Kaardi pilt
   const img = document.createElement('img');
   img.src = country.image;
   img.alt = country.name;
 
-  // Card overlay
+  // Kaardi ülekate
   const overlay = document.createElement('div');
   overlay.className = 'result-card-overlay';
   overlay.innerHTML = `
@@ -70,30 +70,30 @@ function createResultCard(country, index) {
   card.appendChild(img);
   card.appendChild(overlay);
 
-  // Add click handler - open guide URL
+  // Lisa klõpsu käsitleja - ava juhendi URL
   card.addEventListener('click', (e) => {
     e.preventDefault();
-    console.log('Clicked country:', country.name);
-    console.log('Guide URL:', country.guideUrl);
+    console.log('Klõpsatud riik:', country.name);
+    console.log('Juhendi URL:', country.guideUrl);
 
     if (country.guideUrl) {
-      console.log('Opening guideUrl:', country.guideUrl);
+      console.log('Avan guideUrl:', country.guideUrl);
       window.open(country.guideUrl, '_blank', 'noopener,noreferrer');
     } else {
-      console.log('No guideUrl found, opening Google search');
-      // Fallback if no guideUrl - search on Google
+      console.log('guideUrl puudub, avan Google otsingu');
+      // Tagavaravariant kui guideUrl puudub - otsi Google'st
       const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(country.name + ' travel guide')}`;
       window.open(searchUrl, '_blank', 'noopener,noreferrer');
     }
   });
 
-  // Make sure overlay doesn't block clicks
+  // Veendu, et ülekate ei blokeeri klõpse
   card.style.cursor = 'pointer';
 
   return card;
 }
 
-// ===== BACK TO TOP BUTTON =====
+// ===== TAGASI ÜLES NUPP =====
 const toTopBtn = document.getElementById('toTopBtn');
 
 window.addEventListener('scroll', () => {
