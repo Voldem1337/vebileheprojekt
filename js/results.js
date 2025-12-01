@@ -1,4 +1,4 @@
-// Käivita AOS animatsioonid
+// Käivita AOS animatsioonid autor codeopen
 document.addEventListener('DOMContentLoaded', () => {
   AOS.init({
     duration: 800,
