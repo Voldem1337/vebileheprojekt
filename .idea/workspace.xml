@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1e61c04-6ffe-42dd-a40d-3aeb5f28b567" name="Changes" comment="lisatud eesti keeles komenaatird">
+    <list default="true" id="a1e61c04-6ffe-42dd-a40d-3aeb5f28b567" name="Changes" comment="Yeeee">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/results.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/results.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/results.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/results.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/results.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/results.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +89,8 @@
       <updated>1764598802358</updated>
       <workItem from="1764598803608" duration="8000" />
       <workItem from="1764613358619" duration="8960000" />
-      <workItem from="1764623543018" duration="1573000" />
+      <workItem from="1764623543018" duration="2108000" />
+      <workItem from="1764625727942" duration="2253000" />
     </task>
     <task id="LOCAL-00004" summary="almost ready">
       <option name="closed" value="true" />
@@ -125,7 +124,31 @@
       <option name="project" value="LOCAL" />
       <updated>1764623493117</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="lisatud eesti keeles komenaatird">
+      <option name="closed" value="true" />
+      <created>1764625148424</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1764625148425</updated>
+    </task>
+    <task id="LOCAL-00009" summary="lisatud eesti keeles komenaatird">
+      <option name="closed" value="true" />
+      <created>1764625285730</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1764625285730</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Yeeee">
+      <option name="closed" value="true" />
+      <created>1764625660945</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1764625660945</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -134,6 +157,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="almost ready" />
     <MESSAGE value="lisatud eesti keeles komenaatird" />
-    <option name="LAST_COMMIT_MESSAGE" value="lisatud eesti keeles komenaatird" />
+    <MESSAGE value="Yeeee" />
+    <option name="LAST_COMMIT_MESSAGE" value="Yeeee" />
   </component>
 </project>
